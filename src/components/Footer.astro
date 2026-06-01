@@ -1,0 +1,42 @@
+---
+import Btn from './Btn.astro';
+import Clock from './Clock.astro';
+import { FOOTER_STUDIO, FOOTER_CAPABILITIES, HOME_OFFICES } from '@data/site';
+---
+<footer class="footer">
+  <div class="shell">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Group 24/7 Worldwide</h4>
+        <p class="lede" style="max-width: 480px">
+          Perfect design and flawless execution across the full brand journey —
+          from packaging on the shelf to campaigns on the screen.
+        </p>
+        <div style="margin-top: 24px">
+          <Btn href="/contact" accent>Start a project</Btn>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Studio</h4>
+        {FOOTER_STUDIO.map((l) => <a href={l.href}>{l.label}</a>)}
+      </div>
+      <div class="footer-col">
+        <h4>Capabilities</h4>
+        {FOOTER_CAPABILITIES.map((l) => <a href={l.href}>{l.label}</a>)}
+      </div>
+      <div class="footer-col">
+        <h4>Offices</h4>
+        <div class="mono" style="display: grid; gap: 6px; color: var(--fg-2); text-transform: none">
+          {HOME_OFFICES.map((o) => <Clock tz={o.tz} label={o.city} fallback={o.label} />)}
+        </div>
+      </div>
+    </div>
+    <div class="footer-brand-display">
+      GROUP <span class="stroke">24/7</span>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Group 24/7 Worldwide — All rights reserved</span>
+      <span>Privacy · Terms · group247ww.com</span>
+    </div>
+  </div>
+</footer>

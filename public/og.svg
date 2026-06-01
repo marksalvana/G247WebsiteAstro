@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0B0B0C"/>
+  <g font-family="'Hanken Grotesk', system-ui, sans-serif" fill="#EFEAE1">
+    <text x="80" y="300" font-size="92" font-weight="600" letter-spacing="-4">Perfect design.</text>
+    <text x="80" y="400" font-size="92" font-weight="600" letter-spacing="-4">Flawless <tspan fill="#E8392A" font-style="italic" font-weight="400">execution.</tspan></text>
+  </g>
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" fill="#7E7A72" font-size="24" letter-spacing="2">
+    <text x="80" y="110">GROUP 24/7 WORLDWIDE</text>
+    <text x="80" y="560">SYDNEY · MANILA · BANGKOK · SHANGHAI</text>
+  </g>
+  <rect x="80" y="500" width="220" height="3" fill="#E8392A"/>
+</svg>

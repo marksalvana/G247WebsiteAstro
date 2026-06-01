@@ -1,0 +1,102 @@
+---
+import '@fontsource/hanken-grotesk/300.css';
+import '@fontsource/hanken-grotesk/400.css';
+import '@fontsource/hanken-grotesk/500.css';
+import '@fontsource/hanken-grotesk/600.css';
+import '@fontsource/hanken-grotesk/700.css';
+import '@fontsource/hanken-grotesk/800.css';
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/500.css';
+import '@fontsource/jetbrains-mono/600.css';
+import '../styles/tokens.css';
+import '../styles/base.css';
+import '../styles/ai-nav.css';
+
+import Nav from '@components/Nav.astro';
+import Footer from '@components/Footer.astro';
+import Concierge from '@components/Concierge.tsx';
+import { SITE } from '@data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  route?: string;
+  /** Extra JSON-LD object(s) to inject for this page (Service, BlogPosting, etc.) */
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { title, description, route = 'home', schema } = Astro.props;
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+// Placeholder OG image (SVG). Swap for a 1200×630 PNG/JPG for best support
+// across social scrapers that don't render SVG (Facebook/LinkedIn).
+const ogImage = new URL('/og.svg', SITE.url).href;
+
+// Organization graph (site-wide). Page-specific schema is appended below.
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Group 24/7 Worldwide',
+  alternateName: 'G247',
+  url: SITE.url,
+  email: SITE.email,
+  telephone: SITE.phone,
+  foundingDate: '2006',
+  slogan: 'Perfect design, flawless execution.',
+  description:
+    'Integrated creative and production studio across packaging, point of sale, digital, advertising and pharma eDetailers. Global team across Sydney, Manila, Bangkok and Shanghai.',
+  founder: { '@type': 'Person', name: 'Vincent Pearce' },
+  location: [
+    { '@type': 'Place', name: 'Sydney', address: { '@type': 'PostalAddress', addressCountry: 'AU', addressLocality: 'Sydney' } },
+    { '@type': 'Place', name: 'Manila', address: { '@type': 'PostalAddress', addressCountry: 'PH', addressLocality: 'Manila' } },
+    { '@type': 'Place', name: 'Bangkok', address: { '@type': 'PostalAddress', addressCountry: 'TH', addressLocality: 'Bangkok' } },
+    { '@type': 'Place', name: 'Shanghai', address: { '@type': 'PostalAddress', addressCountry: 'CN', addressLocality: 'Shanghai' } },
+  ],
+  sameAs: [SITE.url],
+};
+
+const schemas = [orgSchema, ...(schema ? (Array.isArray(schema) ? schema : [schema]) : [])];
+---
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0B0B0C" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Group 24/7 Worldwide" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    {schemas.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+
+    <!-- Mark JS as available ASAP so reveals don't flash; full init in motion.ts -->
+    <script is:inline>document.documentElement.classList.remove('no-js');</script>
+  </head>
+  <body>
+    <Nav route={route} />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <Concierge client:idle />
+    <script>
+      import '../scripts/motion.ts';
+    </script>
+  </body>
+</html>

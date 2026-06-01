@@ -1,0 +1,15 @@
+---
+import Arrow from './Arrow.astro';
+import { HOME_SERVICES } from '@data/services';
+---
+<div class="svc">
+  {HOME_SERVICES.map((s) => (
+    <a class="svc-row" href={`/${s.slug}`}>
+      <span class="svc-num">[{s.num}]</span>
+      <span class="svc-title">{s.name}</span>
+      <span class="svc-desc">{s.desc}</span>
+      <span class="svc-meta">{s.meta}</span>
+      <span class="svc-arrow"><Arrow size={18} /></span>
+    </a>
+  ))}
+</div>

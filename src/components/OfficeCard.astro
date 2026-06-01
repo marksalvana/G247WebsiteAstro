@@ -1,0 +1,12 @@
+---
+import Clock from './Clock.astro';
+import type { Office } from '@data/site';
+interface Props { office: Office; idx: number; }
+const { office, idx } = Astro.props;
+---
+<div class="office reveal" style={`transition-delay: ${idx * 60}ms`}>
+  <div class="office-flag">[{office.flag}] {office.label}</div>
+  <div class="office-city">{office.city}</div>
+  <Clock class="office-time" tz={office.tz} fallback={office.label} />
+  <div class="office-meta">{office.meta}</div>
+</div>

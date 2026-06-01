@@ -1,0 +1,15 @@
+---
+import Arrow from './Arrow.astro';
+interface Props {
+  href: string;
+  accent?: boolean;
+  ghost?: boolean;
+  target?: string;
+  'data-ai-open'?: boolean;
+}
+const { href, accent, ghost, target } = Astro.props;
+const cls = ['btn', accent && 'btn-accent', ghost && 'btn-ghost'].filter(Boolean).join(' ');
+---
+<a class={cls} href={href} target={target} rel={target === '_blank' ? 'noopener' : undefined}>
+  <slot /><Arrow />
+</a>

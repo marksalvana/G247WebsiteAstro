@@ -1,0 +1,7 @@
+---
+// Live clock. Renders a server-side fallback (the GMT label) so the value is
+// crawlable; clock.ts upgrades it to the live local time on the client.
+interface Props { tz: string; label?: string; fallback?: string; class?: string; }
+const { tz, label = '', fallback = '', class: cls } = Astro.props;
+---
+<span class={cls} data-clock data-tz={tz} data-label={label}>{label ? `${label} ${fallback}`.trim() : fallback}</span>

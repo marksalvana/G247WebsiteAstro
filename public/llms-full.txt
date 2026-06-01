@@ -1,0 +1,55 @@
+# Group 24/7 Worldwide (G247) — full reference
+
+> Integrated creative and production studio. "Perfect design, flawless execution" across the full brand journey — from packaging on the shelf to campaigns on the screen. Founded 2006 in Sydney; now AI-empowered. Senior-led, deliberately lean, global team across Sydney, Manila, Bangkok and Shanghai. Strong in regulated industries (pharmaceutical, finance, insurance). Core promise of "True Value" — senior expertise and world-class execution at a cost larger agencies cannot match.
+
+## Positioning
+- Heritage + AI: two decades of production craft, now AI-empowered.
+- Global team: AU / PH / TH / CN — multi-market, multi-language, multi-timezone.
+- Full brand journey: packaging shelf to digital screen.
+- Regulated-industry expertise: pharma, finance, insurance.
+- True Value: smarter, faster, and more cost-effective than big agencies.
+
+## Practices
+1. Packaging — structural + graphic packaging; pharma compliance (TGA/FDA/EMA); range/dieline design; premium finishes; multi-market rollout; artwork management.
+2. Point of Sale — POS displays (FSDU, gondola ends, counter units); in-store signage; retail environments; vendor management; roll-out kits; sustainable specs.
+3. Digital — GEO-first websites; Core Web Vitals performance; microsites & campaigns; design systems; headless CMS (WordPress, Sanity, Contentful); AI-assisted dev.
+4. Advertising & Collateral — campaign concepts; print collateral; OOH & print media; social campaigns; sales enablement; brand systems.
+5. eDetailers — Veeva CRM-ready pharma eDetailers; MLR/PromoMats approval-ready; modular multi-language content; analytics tagging; productised pricing.
+
+## eDetailer pricing (productised)
+- Standard — from $14k/module: up to 12 screens, Veeva-ready build, 2 revision rounds, 6-week turnaround.
+- Launch — from $34k/module: up to 28 screens + motion, modular library, multi-market adaptation, Veeva analytics tagging, 4 revision rounds.
+- Global — quoted (5+ markets): master + 5+ locales, local-language QA, reviewer comms support, asset library + governance.
+
+## Operating values
+- Precision — held to the standard clients hire us for.
+- Innovation — AI and emerging tech adopted as a responsibility.
+- Partnership — an embedded extension of our clients' teams.
+- Integrity — honest advice, responsible technology use, transparent AI usage.
+- Agility — lean structure and global team for speed across markets and timezones.
+- True Value — more for less; senior expertise at a cost bigger agencies can't match.
+
+## Heritage timeline
+- 2006 — Founded in Sydney as a production-first design studio.
+- 2012 — Manila production office opens; always-on delivery begins.
+- 2018 — Pharma practice scales; regulated content becomes core.
+- 2024 — Productised Veeva-ready eDetailer offer launches.
+- 2026 — AI-assisted delivery core to every practice; GEO-first web rebuild.
+
+## Offices
+- Sydney (AU) — HQ, strategy, account.
+- Manila (PH) — production, engineering.
+- Bangkok (TH) — production, artwork.
+- Shanghai (CN) — local exec, translation.
+
+## Differentiators (quotable)
+- 20+ years of practice.
+- 4 offices, one team — always-on across timezones.
+- 12 languages delivered.
+- ~40% faster than market via AI-assisted draft + senior review.
+
+## Contact
+- General: hello@group247ww.com · +61 2 8000 0000 (Sydney HQ)
+- Pharma / Veeva: pharma@group247ww.com
+- Careers: careers@group247ww.com
+- Website: https://group247ww.com

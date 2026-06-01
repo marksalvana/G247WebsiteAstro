@@ -1,0 +1,63 @@
+---
+import Base from '@layouts/Base.astro';
+import Tag from '@components/Tag.astro';
+import SectionLabel from '@components/SectionLabel.astro';
+import ServiceRows from '@components/ServiceRows.astro';
+import ContactCTA from '@components/ContactCTA.astro';
+
+const title = 'What We Do — Five practices, one studio | Group 24/7 Worldwide';
+const description =
+  'Packaging, Point of Sale, Digital, Advertising & Collateral, and pharma eDetailers — five integrated practices under one senior-led studio, delivered across four timezones.';
+---
+<Base title={title} description={description} route="what-we-do">
+  <div class="page">
+    <section class="page-header">
+      <div class="shell">
+        <div class="breadcrumb">
+          <Tag dot={false}>↤ Home</Tag>
+          <Tag dot={false} num="00 / 01">What we do</Tag>
+        </div>
+        <h1 class="h1 title reveal">
+          Five practices.<br />
+          <span style="color: var(--accent); font-style: italic; font-weight: 400">One studio.</span><br />
+          <span class="stroke">End-to-end execution.</span>
+        </h1>
+        <p class="lede reveal reveal-delay-1">
+          We work across the full brand journey because the brief almost never stops at the
+          lane line. Senior craft in every practice, the same global production team behind
+          it — designed to deliver more, for less, faster than the agencies you usually compare us to.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <ServiceRows />
+      </div>
+    </section>
+
+    <section class="section bg-2">
+      <div class="shell">
+        <SectionLabel num="↳" name="Why a single studio" right="Integrated brief, integrated team" />
+        <div class="grid12">
+          <div style="grid-column: span 6">
+            <h2 class="h2 reveal">
+              The handoff between agencies<br />
+              <span style="color: var(--accent); font-style: italic; font-weight: 400">is where brands lose</span><br />
+              consistency, money, and time.
+            </h2>
+          </div>
+          <div style="grid-column: 8 / -1; align-self: end">
+            <p class="lede reveal reveal-delay-1">
+              A single team across packaging, retail, digital and pharma means one brief,
+              one set of guidelines, one calendar — and one accountable studio for everything
+              you ship.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </div>
+</Base>

@@ -1,0 +1,90 @@
+---
+import Base from '@layouts/Base.astro';
+import Tag from '@components/Tag.astro';
+import Chip from '@components/Chip.astro';
+import Placeholder from '@components/Placeholder.astro';
+import ContactCTA from '@components/ContactCTA.astro';
+import { WORK } from '@data/site';
+
+const title = 'Selected Work — Shipped, not pitched | Group 24/7 Worldwide';
+const description =
+  'A representative sample of recent G247 engagements across pharma, FMCG, financial services, healthcare and retail — packaging, POS, digital, advertising and eDetailers.';
+
+const industries = ['All', ...Array.from(new Set(WORK.map((w) => w.industry)))];
+---
+<Base title={title} description={description} route="work">
+  <div class="page">
+    <section class="page-header">
+      <div class="shell">
+        <div class="breadcrumb">
+          <Tag dot={false}>↤ Home</Tag>
+          <Tag dot={false} num="00 / 04">Selected work</Tag>
+        </div>
+        <h1 class="h1 title reveal">
+          Selected work.<br />
+          <span style="color: var(--accent); font-style: italic; font-weight: 400">Shipped, not pitched.</span>
+        </h1>
+        <p class="lede reveal reveal-delay-1">
+          A representative sample of recent engagements. Many client projects are NDA — happy to
+          walk you through the full portfolio in a brief introductory call.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="row between" style="margin-bottom: var(--s-7); flex-wrap: wrap; gap: 16px">
+          <div class="row gap-3" style="flex-wrap: wrap" id="work-filters">
+            {industries.map((i) => (
+              <button class="chip work-filter" data-filter={i} class:list={['chip', 'work-filter', i === 'All' && 'is-active']}>{i}</button>
+            ))}
+          </div>
+          <div class="mono muted" id="work-count">{WORK.length} of {WORK.length} projects</div>
+        </div>
+
+        <div class="work" id="work-grid">
+          {WORK.map((w, i) => (
+            <div class="work-card reveal" data-industry={w.industry} style={`grid-column: span ${w.size}; transition-delay: ${(i % 3) * 60}ms`}>
+              <Placeholder ratio={w.ratio} label={`${w.year} · ${w.industry.toUpperCase()}`} />
+              <div class="meta">
+                <div>
+                  <div class="mono muted">{w.kind} · {w.year}</div>
+                  <div class="title" style="margin-top: 6px">{w.title}</div>
+                </div>
+                <Chip>{w.industry}</Chip>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </div>
+</Base>
+
+<script>
+  const total = document.querySelectorAll('#work-grid .work-card').length;
+  const filters = document.querySelectorAll<HTMLButtonElement>('.work-filter');
+  const cards = document.querySelectorAll<HTMLElement>('#work-grid .work-card');
+  const count = document.getElementById('work-count');
+  filters.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const f = btn.dataset.filter!;
+      filters.forEach((b) => b.classList.toggle('is-active', b === btn));
+      let shown = 0;
+      cards.forEach((c) => {
+        const match = f === 'All' || c.dataset.industry === f;
+        c.style.display = match ? '' : 'none';
+        if (match) shown++;
+      });
+      if (count) count.textContent = `${shown} of ${total} projects`;
+    });
+  });
+</script>
+
+<style>
+  .work-filter { cursor: none; transition: border-color .2s, color .2s; }
+  .work-filter.is-active { border-color: var(--accent); color: var(--accent); }
+  @media (hover: none) { .work-filter { cursor: pointer; } }
+</style>

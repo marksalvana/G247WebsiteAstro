@@ -1,0 +1,61 @@
+---
+import Base from '@layouts/Base.astro';
+import Tag from '@components/Tag.astro';
+import Arrow from '@components/Arrow.astro';
+import SectionLabel from '@components/SectionLabel.astro';
+import ContactCTA from '@components/ContactCTA.astro';
+import { POSTS, SITE } from '@data/site';
+
+const title = 'Insights — From the studio floor | Group 24/7 Worldwide';
+const description =
+  'How G247 thinks about craft, AI, GEO, regulated content, and the production economics of the agency model in 2026.';
+
+const blogSchema = POSTS.map((p) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: p.title,
+  datePublished: new Date(p.date).toISOString().slice(0, 10),
+  articleSection: p.cat,
+  author: { '@type': 'Organization', name: 'Group 24/7 Worldwide' },
+  publisher: { '@type': 'Organization', name: 'Group 24/7 Worldwide', url: SITE.url },
+}));
+---
+<Base title={title} description={description} route="insights" schema={blogSchema}>
+  <div class="page">
+    <section class="page-header">
+      <div class="shell">
+        <div class="breadcrumb">
+          <Tag dot={false}>↤ Home</Tag>
+          <Tag dot={false} num="00 / 05">Insights</Tag>
+        </div>
+        <h1 class="h1 title reveal">
+          Insights.<br />
+          <span style="color: var(--accent); font-style: italic; font-weight: 400">From the studio floor.</span>
+        </h1>
+        <p class="lede reveal reveal-delay-1">
+          How we think about craft, AI, regulated content, and the production economics of the
+          agency model in 2026.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <SectionLabel num="01" name="Recent" right={`${POSTS.length} posts`} />
+        <div class="posts">
+          {POSTS.map((p) => (
+            <a class="post reveal" href="#">
+              <span class="post-date">{p.date}</span>
+              <span class="post-cat">{p.cat}</span>
+              <span class="post-title">{p.title}</span>
+              <span class="post-read">{p.read}</span>
+              <span class="post-arrow"><Arrow size={16} /></span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </div>
+</Base>

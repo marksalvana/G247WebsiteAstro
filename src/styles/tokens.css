@@ -1,0 +1,56 @@
+/* ============================================================
+   G247 REDESIGN — Design tokens
+   Locked to: Direction B (Studio dark) + comfy density.
+   (The prototype's Direction A palette, density switching and
+   tweaks-panel hooks are intentionally dropped.)
+   ============================================================ */
+
+:root {
+  /* Type scale (fluid; tuned for 1440 design width) */
+  --fs-display: clamp(72px, 11.5vw, 220px);
+  --fs-h1:      clamp(48px, 6.8vw, 112px);
+  --fs-h2:      clamp(36px, 4.2vw, 72px);
+  --fs-h3:      clamp(24px, 2.2vw, 36px);
+  --fs-lede:    clamp(20px, 1.5vw, 28px);
+  --fs-body:    16px;
+  --fs-small:   13px;
+  --fs-mono:    12px;
+
+  /* Spacing rhythm (multiples of 4) */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px;
+  --s-9: 96px; --s-10: 128px; --s-11: 160px; --s-12: 200px;
+
+  /* Layout */
+  --gutter: clamp(16px, 2.4vw, 32px);
+  --maxw: 1440px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(.16,.84,.32,1);
+  --ease-inout: cubic-bezier(.7,0,.3,1);
+
+  /* Type families — Hanken Grotesk × JetBrains Mono (locked pair) */
+  --ff-sans: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+  --ff-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --ff-display: "Hanken Grotesk", system-ui, sans-serif;
+
+  /* Accent */
+  --accent: #E8392A;
+  --accent-ink: #0C0C0E;
+
+  /* Direction B — Studio (dark), baked in */
+  --bg:      #0B0B0C;
+  --bg-2:    #131315;
+  --bg-3:    #1B1B1E;
+  --fg:      #EFEAE1;
+  --fg-2:    #C8C4BB;
+  --fg-muted:#7E7A72;
+  --line:    rgba(239,234,225,0.12);
+  --line-strong: rgba(239,234,225,0.34);
+  --grid-line: rgba(239,234,225,0.05);
+  --chip-bg: rgba(239,234,225,0.06);
+
+  /* Density — comfy */
+  --pad-y: var(--s-10);
+  --pad-x: clamp(20px, 3vw, 48px);
+}

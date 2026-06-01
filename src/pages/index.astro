@@ -1,0 +1,247 @@
+---
+import Base from '@layouts/Base.astro';
+import Tag from '@components/Tag.astro';
+import Chip from '@components/Chip.astro';
+import Btn from '@components/Btn.astro';
+import Marquee from '@components/Marquee.astro';
+import SectionLabel from '@components/SectionLabel.astro';
+import ServiceRows from '@components/ServiceRows.astro';
+import Placeholder from '@components/Placeholder.astro';
+import OfficeCard from '@components/OfficeCard.astro';
+import { HERO_CYCLE_WORDS, HOME_WORK, HOME_VALUES, HOME_OFFICES } from '@data/site';
+
+const title = 'Group 24/7 Worldwide — Perfect design, flawless execution';
+const description =
+  'Group 24/7 Worldwide (G247) is an integrated creative and production studio — packaging, point of sale, digital, advertising and pharma eDetailers. Senior-led, AI-empowered, global team across Sydney, Manila, Bangkok and Shanghai.';
+---
+<Base title={title} description={description} route="home">
+  <div class="page">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="shell">
+        <div class="hero-meta">
+          <Tag num="01" dot={false}>Group 24/7 — Est. 2006</Tag>
+          <div class="divider"></div>
+          <Tag dot={false}>Sydney · Manila · Bangkok · Shanghai</Tag>
+        </div>
+        <div class="reveal">
+          <h1 class="hero-display">
+            <div>We design</div>
+            <div>
+              <span class="accent hero-cycle-word" data-hero-cycle data-words={JSON.stringify(HERO_CYCLE_WORDS)}>{HERO_CYCLE_WORDS[0]}</span>
+            </div>
+            <div><span class="outline">For brands</span> that demand more.</div>
+          </h1>
+        </div>
+
+        <div class="hero-sub reveal reveal-delay-1">
+          <p class="lede">
+            We build brands for a world in constant change — integrating two decades of
+            production heritage with AI-empowered digital services, and the exacting
+            standards the world's most demanding clients require.
+          </p>
+          <div style="display: grid; align-content: end; gap: 16px">
+            <div class="pill-list">
+              <Chip>True Value</Chip>
+              <Chip>AI-empowered</Chip>
+              <Chip>Pharma-grade</Chip>
+              <Chip>Global delivery</Chip>
+            </div>
+            <button type="button" class="ai-herobar" data-ai-open data-cursor="text" aria-haspopup="dialog">
+              <span class="ai-spark">✦</span>
+              <span class="ai-herobar-text">Tell us what you're trying to build…</span>
+              <span class="ai-herobar-kbd">⌘K</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TICKER -->
+    <Marquee items={[
+      'Packaging', 'Point of Sale', 'Digital', 'eDetailers', 'Advertising',
+      'Veeva-ready', 'Multi-market', 'AI-empowered', 'Senior-led', 'Always-on',
+    ]} />
+
+    <!-- WHAT WE DO -->
+    <section class="section">
+      <div class="shell">
+        <SectionLabel num="01" name="What we do" right="Five practices · One studio" />
+        <div class="grid12" style="margin-bottom: var(--s-7)">
+          <div style="grid-column: span 5">
+            <h2 class="h2 reveal">A full-service studio for brands that can't afford to look anything less than exceptional.</h2>
+          </div>
+          <div style="grid-column: 7 / -1">
+            <p class="lede reveal reveal-delay-1">
+              Most agencies pick a lane: digital, or print, or production. We work across
+              the entire brand journey because the brief almost never stops at the lane line.
+            </p>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <ServiceRows />
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section bg-2">
+      <div class="shell">
+        <SectionLabel num="02" name="Selected work" right="2024 → 2026" />
+        <div class="work">
+          <div class="work-card feat" style="grid-column: span 7">
+            <Placeholder ratio="16/10" label={HOME_WORK[0].ph} />
+            <div class="meta">
+              <div>
+                <div class="mono muted">{HOME_WORK[0].kind}</div>
+                <div class="title" style="margin-top: 6px">{HOME_WORK[0].title}</div>
+              </div>
+              <Chip>{HOME_WORK[0].tag}</Chip>
+            </div>
+          </div>
+          <div class="work-card feat" style="grid-column: span 5">
+            <Placeholder ratio="16/12" label={HOME_WORK[1].ph} />
+            <div class="meta">
+              <div>
+                <div class="mono muted">{HOME_WORK[1].kind}</div>
+                <div class="title" style="margin-top: 6px">{HOME_WORK[1].title}</div>
+              </div>
+              <Chip>{HOME_WORK[1].tag}</Chip>
+            </div>
+          </div>
+          <div class="work-card" style="grid-column: span 6">
+            <Placeholder ratio="4/3" label={HOME_WORK[2].ph} />
+            <div class="meta">
+              <div>
+                <div class="mono muted">{HOME_WORK[2].kind}</div>
+                <div class="title" style="margin-top: 6px">{HOME_WORK[2].title}</div>
+              </div>
+              <Chip>{HOME_WORK[2].tag}</Chip>
+            </div>
+          </div>
+          <div class="work-card" style="grid-column: span 6">
+            <Placeholder ratio="4/3" label={HOME_WORK[3].ph} />
+            <div class="meta">
+              <div>
+                <div class="mono muted">{HOME_WORK[3].kind}</div>
+                <div class="title" style="margin-top: 6px">{HOME_WORK[3].title}</div>
+              </div>
+              <Chip>{HOME_WORK[3].tag}</Chip>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: var(--s-7)">
+          <Btn href="/work" ghost>Browse the archive</Btn>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUE VALUE -->
+    <section class="section">
+      <div class="shell">
+        <SectionLabel num="03" name="True Value" right="The math of working smarter" />
+        <div class="grid12">
+          <div style="grid-column: span 7">
+            <h2 class="h1 reveal">
+              Senior expertise<br />
+              <span style="color: var(--accent); font-style: italic; font-weight: 400">at a price</span><br />
+              bigger agencies<br />
+              <span class="stroke">cannot match.</span>
+            </h2>
+          </div>
+          <div style="grid-column: 9 / -1; align-self: end">
+            <p class="lede reveal reveal-delay-1">
+              A lean structure, an AI-assisted workflow, and a global team across four
+              timezones — built so our clients save time and money without ever
+              compromising on quality.
+            </p>
+            <div style="margin-top: 24px">
+              <Btn href="/about">How we work</Btn>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats" style="margin-top: var(--s-9)">
+          <div class="reveal">
+            <div class="stat-num">20<span style="color: var(--accent)">+</span></div>
+            <div class="stat-label">Years of practice</div>
+            <div class="stat-desc">Production heritage from 2006 onward, across packaging, retail and digital.</div>
+          </div>
+          <div class="reveal reveal-delay-1">
+            <div class="stat-num">04</div>
+            <div class="stat-label">Offices, one team</div>
+            <div class="stat-desc">Sydney · Manila · Bangkok · Shanghai. Always-on across timezones.</div>
+          </div>
+          <div class="reveal reveal-delay-2">
+            <div class="stat-num">12</div>
+            <div class="stat-label">Languages delivered</div>
+            <div class="stat-desc">Production across AU, SEA and Greater China — local-language adaptation built in.</div>
+          </div>
+          <div class="reveal reveal-delay-3">
+            <div class="stat-num">~40<span class="mono" style="font-size: 20px; color: var(--fg-muted); margin-left: 6px">%</span></div>
+            <div class="stat-label">Faster than market</div>
+            <div class="stat-desc">AI-assisted draft + senior review cuts content production time substantially.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOBAL TEAM -->
+    <section class="section bg-2">
+      <div class="shell">
+        <SectionLabel num="04" name="Global team" right="One studio · Four timezones" />
+        <div class="grid12" style="margin-bottom: var(--s-7)">
+          <div style="grid-column: span 7">
+            <h2 class="h2 reveal">Round-the-clock execution<br />when it counts.</h2>
+          </div>
+        </div>
+        <div class="offices">
+          {HOME_OFFICES.map((o, i) => <OfficeCard office={o} idx={i} />)}
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="section">
+      <div class="shell">
+        <SectionLabel num="05" name="Operating values" right="Six commitments" />
+        <div class="grid12" style="margin-bottom: var(--s-7)">
+          <div style="grid-column: span 7">
+            <h2 class="h2 reveal">The values that describe<br />
+              <span style="color: var(--accent); font-style: italic; font-weight: 400">why clients choose us</span> —<br />not just what we do.</h2>
+          </div>
+        </div>
+        <div class="values">
+          {HOME_VALUES.map((v) => (
+            <div class="value reveal">
+              <div class="value-num">{v.num}</div>
+              <div>
+                <div class="value-name">{v.name}</div>
+                <p class="value-def">{v.def}</p>
+                <div class="value-looks">↳ {v.looks}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="shell">
+        <div class="cta-display">
+          Brief <span class="ital">us.</span><br />
+          <span class="stroke">Save time.</span><br />
+          Save money.
+        </div>
+        <div class="cta-row">
+          <p class="lede" style="max-width: 560px">
+            Tell us what you're shipping. We'll come back with a senior point of view —
+            and a plan that fits your budget and timeline.
+          </p>
+          <Btn href="/contact" accent>Start a project</Btn>
+        </div>
+      </div>
+    </section>
+  </div>
+</Base>

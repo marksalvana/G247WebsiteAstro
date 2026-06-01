@@ -1,0 +1,84 @@
+---
+import Base from '@layouts/Base.astro';
+import Tag from '@components/Tag.astro';
+import Placeholder from '@components/Placeholder.astro';
+import SectionLabel from '@components/SectionLabel.astro';
+import ContactCTA from '@components/ContactCTA.astro';
+import { TEAM, SITE } from '@data/site';
+
+const title = 'Team — Seniors only, no bench warmers | Group 24/7 Worldwide';
+const description =
+  'Every G247 account has a senior decision-maker on it by design. A deliberately lean team across Sydney, Manila, Bangkok and Shanghai.';
+
+const peopleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'OrganizationRole',
+  '@id': new URL('/team', SITE.url).href,
+  member: TEAM.map((m) => ({
+    '@type': 'Person', name: m.name, jobTitle: m.role,
+    worksFor: { '@type': 'Organization', name: 'Group 24/7 Worldwide' },
+    workLocation: { '@type': 'Place', name: m.city },
+  })),
+};
+---
+<Base title={title} description={description} route="team" schema={peopleSchema}>
+  <div class="page">
+    <section class="page-header">
+      <div class="shell">
+        <div class="breadcrumb">
+          <Tag dot={false}>↤ Home</Tag>
+          <Tag dot={false} num="00 / 03">Team</Tag>
+        </div>
+        <h1 class="h1 title reveal">
+          Seniors only.<br />
+          <span style="color: var(--accent); font-style: italic; font-weight: 400">No bench warmers.</span><br />
+          <span class="stroke">No unnecessary layers.</span>
+        </h1>
+        <p class="lede reveal reveal-delay-1">
+          Every G247 account has a senior decision-maker on it — by design. We are deliberately
+          lean: fewer hands, more experience, less time spent translating between layers.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <SectionLabel num="01" name="The team" right={`${TEAM.length} members · 4 cities`} />
+        <div class="team-grid">
+          {TEAM.map((m, i) => (
+            <div class="team-card reveal" style={`transition-delay: ${(i % 4) * 60}ms`}>
+              <Placeholder ratio="3/4" label={m.city.toUpperCase()} />
+              <div class="name">{m.name}</div>
+              <div class="role">{m.role} · {m.city}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-2">
+      <div class="shell">
+        <SectionLabel num="02" name="Working with us" right="What to expect" />
+        <div class="caps">
+          <div class="cap reveal">
+            <div class="cap-num">[01]</div>
+            <div class="cap-name">Senior in the room</div>
+            <div class="cap-desc">No layers between the brief and the people who own the output.</div>
+          </div>
+          <div class="cap reveal reveal-delay-1">
+            <div class="cap-num">[02]</div>
+            <div class="cap-name">Honest counsel</div>
+            <div class="cap-desc">We'll tell you when the brief needs rethinking. We've earned the right to.</div>
+          </div>
+          <div class="cap reveal reveal-delay-2">
+            <div class="cap-num">[03]</div>
+            <div class="cap-name">Predictable delivery</div>
+            <div class="cap-desc">Lean processes, AI-assisted drafts, senior reviews. We hit dates.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </div>
+</Base>

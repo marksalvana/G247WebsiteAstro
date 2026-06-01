@@ -1,0 +1,29 @@
+---
+import Clock from './Clock.astro';
+import { NAV_ITEMS } from '@data/site';
+interface Props { route?: string; }
+const { route = 'home' } = Astro.props;
+const isActive = (id: string) =>
+  route === id || (id !== 'home' && route.startsWith(id));
+---
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/">
+      <span class="brand-mark">24/7</span>
+      <span class="brand-name">Group 24/7 Worldwide</span>
+    </a>
+    <nav class="nav-menu" aria-label="Primary">
+      {NAV_ITEMS.map((it) => (
+        <a href={it.href} class:list={['nav-link', isActive(it.id) && 'active']}>{it.label}</a>
+      ))}
+    </nav>
+    <div class="nav-right">
+      <Clock class="nav-clock" tz="Australia/Sydney" label="SYD" />
+      <button class="ai-trigger" type="button" data-ai-open aria-haspopup="dialog">
+        <span class="ai-spark">✦</span>
+        Ask G247
+        <span class="ai-kbd">⌘K</span>
+      </button>
+    </div>
+  </div>
+</header>

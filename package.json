@@ -1,0 +1,22 @@
+{
+  "name": "g247-redesign",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Group 24/7 Worldwide — redesign (AI Nav direction). Astro static + serverless concierge.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.65.0",
+    "@astrojs/preact": "^4.1.0",
+    "@astrojs/sitemap": "^3.6.0",
+    "@astrojs/vercel": "^8.2.7",
+    "@fontsource/hanken-grotesk": "^5.2.6",
+    "@fontsource/jetbrains-mono": "^5.2.6",
+    "astro": "^5.14.0",
+    "preact": "^10.27.2"
+  }
+}

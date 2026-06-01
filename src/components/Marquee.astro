@@ -1,0 +1,16 @@
+---
+interface Props { items: string[]; accent?: boolean; }
+const { items, accent = true } = Astro.props;
+// duplicate items for a seamless loop
+const list = [...items, ...items];
+---
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    {list.map((it, i) => (
+      <span class="marquee-item">
+        {accent && <span class="dot"></span>}
+        <span class={i % 4 === 1 ? 'stroke' : ''}>{it}</span>
+      </span>
+    ))}
+  </div>
+</div>

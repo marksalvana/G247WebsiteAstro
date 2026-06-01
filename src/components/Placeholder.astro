@@ -1,0 +1,13 @@
+---
+// Swiss-style striped placeholder with a mono label.
+// Swap for a real <img> when final imagery lands.
+interface Props { label?: string; ratio?: string; class?: string; }
+const { label, ratio, class: cls } = Astro.props;
+const style = ratio ? `aspect-ratio: ${ratio.replace('/', ' / ')};` : undefined;
+---
+<div class:list={['ph', cls]} style={style}>
+  <div class="ph-cross"></div>
+  <div class="ph-corner"></div>
+  <slot />
+  {label && <div class="ph-label">{label}</div>}
+</div>

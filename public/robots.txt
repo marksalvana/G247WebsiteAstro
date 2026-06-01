@@ -1,0 +1,36 @@
+# Group 24/7 Worldwide — robots.txt
+# GEO note: we deliberately ALLOW AI/answer-engine crawlers. The goal is to be
+# read, cited and recommended by AI systems — not to block them.
+
+User-agent: *
+Allow: /
+
+# AI / answer-engine crawlers (explicit opt-in)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://group247ww.com/sitemap-index.xml

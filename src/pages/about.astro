@@ -1,0 +1,135 @@
+---
+import Base from '@layouts/Base.astro';
+import Tag from '@components/Tag.astro';
+import Btn from '@components/Btn.astro';
+import SectionLabel from '@components/SectionLabel.astro';
+import ContactCTA from '@components/ContactCTA.astro';
+import { HOME_VALUES, TIMELINE } from '@data/site';
+
+const title = 'About — Two decades of craft, one AI-empowered studio | Group 24/7 Worldwide';
+const description =
+  'Founded in Sydney in 2006, Group 24/7 Worldwide builds brands across packaging, print, retail and digital — senior-led, AI-empowered, and global. Our mission, vision, heritage and operating values.';
+---
+<Base title={title} description={description} route="about">
+  <div class="page">
+    <section class="page-header">
+      <div class="shell">
+        <div class="breadcrumb">
+          <Tag dot={false}>↤ Home</Tag>
+          <Tag dot={false} num="00 / 02">About</Tag>
+        </div>
+        <h1 class="h1 title reveal">
+          Two decades<br />
+          of craft.<br />
+          <span style="color: var(--accent); font-style: italic; font-weight: 400">One AI-empowered</span><br />
+          studio<br />
+          <span class="stroke">built for now.</span>
+        </h1>
+        <p class="lede reveal reveal-delay-1">
+          Group 24/7 has spent the last twenty years building brands across packaging,
+          print, retail and digital. We're not a digital-native startup. We're not a legacy
+          big-agency. We're the studio brands turn to when craft, speed, and value all matter.
+        </p>
+      </div>
+    </section>
+
+    <!-- Mission -->
+    <section class="section">
+      <div class="shell">
+        <SectionLabel num="01" name="Mission" right="What we exist to do" />
+        <div class="grid12">
+          <div style="grid-column: span 8">
+            <h2 class="h1 reveal" style="font-size: clamp(32px, 4.4vw, 72px)">
+              Group 24/7 delivers <span style="color: var(--accent); font-style: italic; font-weight: 400">perfect design</span> and
+              <span style="color: var(--accent); font-style: italic; font-weight: 400"> flawless execution</span> across
+              the full brand journey — from packaging on the shelf to campaigns on the screen —
+              working smarter to save our clients time and money, backed by a global team,
+              two decades of production heritage, AI-empowered digital services, and the
+              senior talent that the world's most demanding brands rely on.
+            </h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision -->
+    <section class="section bg-2">
+      <div class="shell">
+        <SectionLabel num="02" name="Vision" right="Where we're going" />
+        <div class="grid12">
+          <div style="grid-column: span 8">
+            <h2 class="h1 reveal" style="font-size: clamp(32px, 4.4vw, 72px)">
+              To be the most trusted creative and production partner for ambitious brands
+              worldwide — where <span style="color: var(--accent); font-style: italic; font-weight: 400">craft, efficiency, and technology</span> come
+              together so our clients look exceptional at every touchpoint, in every market,
+              at a cost that makes choosing G247 the easy decision.
+            </h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section">
+      <div class="shell">
+        <SectionLabel num="03" name="Heritage" right="2006 → 2026" />
+        <div class="process">
+          {TIMELINE.map((p, i) => (
+            <div class="process-step reveal" style={`transition-delay: ${i * 60}ms`}>
+              <div class="process-num">{p.num}</div>
+              <div class="process-name">{p.name}</div>
+              <div class="process-desc">{p.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Values -->
+    <section class="section bg-2">
+      <div class="shell">
+        <SectionLabel num="04" name="Operating values" right="Six commitments" />
+        <div class="values">
+          {HOME_VALUES.map((v) => (
+            <div class="value reveal">
+              <div class="value-num">{v.num}</div>
+              <div>
+                <div class="value-name">{v.name}</div>
+                <p class="value-def">{v.def}</p>
+                <div class="value-looks">↳ {v.looks}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- AI Charter -->
+    <section class="section">
+      <div class="shell">
+        <SectionLabel num="05" name="AI Charter" right="How we use AI" />
+        <div class="grid12">
+          <div style="grid-column: span 6">
+            <h2 class="h2 reveal">
+              We use AI as a <span style="color: var(--accent); font-style: italic; font-weight: 400">responsibility</span>,
+              not a feature.
+            </h2>
+          </div>
+          <div style="grid-column: 8 / -1; align-self: end">
+            <p class="lede reveal reveal-delay-1">
+              AI is in our workflows because it makes our seniors faster and our clients'
+              budgets go further — never because it lets us cut corners on craft. Every output
+              ships through senior review. Our policy on IP, data, and client confidentiality
+              is published, not assumed.
+            </p>
+            <div style="margin-top: 24px">
+              <Btn href="/insights" ghost>Read our AI charter</Btn>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </div>
+</Base>

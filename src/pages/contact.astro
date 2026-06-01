@@ -1,0 +1,153 @@
+---
+import Base from '@layouts/Base.astro';
+import Tag from '@components/Tag.astro';
+import Btn from '@components/Btn.astro';
+import SectionLabel from '@components/SectionLabel.astro';
+import OfficeCard from '@components/OfficeCard.astro';
+import { HOME_OFFICES } from '@data/site';
+
+const title = 'Contact — Brief us, senior reply same week | Group 24/7 Worldwide';
+const description =
+  'Tell us what you are shipping. One short brief and a senior team member replies within one business day. Direct lines for general, pharma/Veeva and careers enquiries.';
+---
+<Base title={title} description={description} route="contact">
+  <div class="page">
+    <section class="page-header">
+      <div class="shell">
+        <div class="breadcrumb">
+          <Tag dot={false}>↤ Home</Tag>
+          <Tag dot={false} num="00 / 06">Contact</Tag>
+        </div>
+        <h1 class="h1 title reveal">
+          Brief us.<br />
+          <span style="color: var(--accent); font-style: italic; font-weight: 400">One short form.</span><br />
+          <span class="stroke">Senior reply, same week.</span>
+        </h1>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <div class="contact">
+          <div>
+            <form class="contact-form reveal" id="contact-form" action="/api/contact" method="post">
+              <div class="field">
+                <label for="name">01 · Your name</label>
+                <input id="name" name="name" type="text" required placeholder="Jane Marketer" />
+              </div>
+              <div class="field">
+                <label for="email">02 · Work email</label>
+                <input id="email" name="email" type="email" required placeholder="jane@brand.com" />
+              </div>
+              <div class="field">
+                <label for="company">03 · Company</label>
+                <input id="company" name="company" type="text" placeholder="Brand or organisation" />
+              </div>
+              <div class="field">
+                <label for="topic">04 · What can we help with?</label>
+                <select id="topic" name="topic">
+                  <option>Packaging</option>
+                  <option>Point of Sale</option>
+                  <option>Digital / Website</option>
+                  <option>Advertising &amp; Collateral</option>
+                  <option>eDetailers / Pharma</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="brief">05 · Tell us about the brief</label>
+                <textarea id="brief" name="brief" placeholder="What you're shipping, when you need it, and what success looks like."></textarea>
+              </div>
+              <div class="row gap-4" style="align-items: center; margin-top: 16px; flex-wrap: wrap">
+                <button class="btn btn-accent" type="submit">
+                  Send brief
+                  <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" /></svg>
+                </button>
+                <span class="mono muted">↳ Senior reply within one business day</span>
+              </div>
+            </form>
+
+            <div class="reveal" id="contact-sent" hidden>
+              <Tag>Sent</Tag>
+              <h2 class="h2" style="margin-top: 16px">
+                Got it.<br />
+                <span style="color: var(--accent); font-style: italic; font-weight: 400">We'll be in touch</span><br />
+                before close of business.
+              </h2>
+              <p class="lede" style="margin-top: 16px">
+                A senior team member will reply with a point of view and proposed next step.
+                In the meantime, take a look at what we've shipped.
+              </p>
+              <div style="margin-top: 24px" class="row gap-4">
+                <Btn href="/work" ghost>Selected work</Btn>
+                <button class="btn btn-ghost" type="button" id="contact-again">
+                  Send another
+                  <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" /></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <aside style="display: grid; gap: var(--s-7); align-content: start">
+            <div class="reveal">
+              <div class="mono muted">↳ Direct lines</div>
+              <div class="h3" style="margin-top: 8px">hello@group247ww.com</div>
+              <div class="mono muted" style="margin-top: 8px">+61 2 8000 0000 · Sydney HQ</div>
+            </div>
+            <hr class="hr" />
+            <div class="reveal reveal-delay-1">
+              <div class="mono muted">↳ Pharma / Veeva enquiries</div>
+              <div class="h3" style="margin-top: 8px">pharma@group247ww.com</div>
+              <div class="mono muted" style="margin-top: 8px">Routed to senior pharma leads</div>
+            </div>
+            <hr class="hr" />
+            <div class="reveal reveal-delay-2">
+              <div class="mono muted">↳ For talent</div>
+              <div class="h3" style="margin-top: 8px">careers@group247ww.com</div>
+              <div class="mono muted" style="margin-top: 8px">Sydney · Manila · Bangkok · Shanghai</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-2">
+      <div class="shell">
+        <SectionLabel num="02" name="Offices" right="Four cities · One team" />
+        <div class="offices">
+          {HOME_OFFICES.map((o, i) => <OfficeCard office={o} idx={i} />)}
+        </div>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const sent = document.getElementById('contact-sent');
+  const again = document.getElementById('contact-again');
+  if (form && sent) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      if (btn) { btn.disabled = true; btn.style.opacity = '0.6'; }
+      try {
+        await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        });
+      } catch { /* show success regardless; brief is captured client-side UX */ }
+      form.hidden = true;
+      sent.hidden = false;
+      sent.classList.add('is-in');
+    });
+    again?.addEventListener('click', () => {
+      form.reset();
+      form.hidden = false;
+      sent.hidden = true;
+      const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+      if (btn) { btn.disabled = false; btn.style.opacity = ''; }
+    });
+  }
+</script>

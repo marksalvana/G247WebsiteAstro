@@ -1,0 +1,167 @@
+---
+import Base from '@layouts/Base.astro';
+import Tag from '@components/Tag.astro';
+import Chip from '@components/Chip.astro';
+import Btn from '@components/Btn.astro';
+import SectionLabel from '@components/SectionLabel.astro';
+import Placeholder from '@components/Placeholder.astro';
+import ContactCTA from '@components/ContactCTA.astro';
+import { SERVICE_DETAILS, SERVICE_SLUGS } from '@data/services';
+import { SITE } from '@data/site';
+
+export function getStaticPaths() {
+  return SERVICE_SLUGS.map((slug) => ({ params: { service: slug } }));
+}
+
+const { service } = Astro.params;
+const s = SERVICE_DETAILS[service as keyof typeof SERVICE_DETAILS];
+if (!s) return Astro.redirect('/what-we-do');
+
+const title = `${s.name} — Group 24/7 Worldwide`;
+const description = s.lede;
+
+// Service schema (with Offer tiers for eDetailers) for GEO extraction.
+const serviceSchema: Record<string, unknown> = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: s.name,
+  serviceType: s.name,
+  description: s.lede,
+  provider: { '@type': 'Organization', name: 'Group 24/7 Worldwide', url: SITE.url },
+  areaServed: ['AU', 'PH', 'TH', 'CN', 'SEA', 'Greater China'],
+  url: new URL(`/${s.slug}`, SITE.url).href,
+};
+if (s.pricing) {
+  serviceSchema.offers = s.pricing.map((t) => ({
+    '@type': 'Offer',
+    name: t.name,
+    description: t.desc,
+    priceCurrency: 'AUD',
+    ...(t.price.startsWith('From $') ? { price: t.price.replace(/[^0-9]/g, '') + '000' } : {}),
+  }));
+}
+
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'What We Do', item: new URL('/what-we-do', SITE.url).href },
+    { '@type': 'ListItem', position: 2, name: s.name, item: new URL(`/${s.slug}`, SITE.url).href },
+  ],
+};
+const regulated = s.name === 'Packaging' || s.name === 'eDetailers';
+---
+<Base title={title} description={description} route={s.slug} schema={[serviceSchema, breadcrumb]}>
+  <div class="page">
+    <section class="page-header">
+      <div class="shell">
+        <div class="breadcrumb">
+          <a class="tag" href="/what-we-do">↤ What we do</a>
+          <Tag dot={false} num={`${s.num} / 05`}>{s.name}</Tag>
+        </div>
+        <h1 class="h1 title reveal">
+          {s.name}.<br />
+          <span class="stroke">Built for the brief.</span>
+        </h1>
+        <p class="lede reveal reveal-delay-1">{s.lede}</p>
+        <div class="row gap-4 reveal reveal-delay-2" style="margin-top: 32px; flex-wrap: wrap">
+          <Btn href="/contact" accent>Brief us on {s.name.toLowerCase()}</Btn>
+          <Btn href="/work" ghost>Selected work</Btn>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section class="section">
+      <div class="shell">
+        <SectionLabel num="A" name="Capabilities" right={`${s.capabilities.length} disciplines`} />
+        <div class="caps">
+          {s.capabilities.map((c, i) => (
+            <div class="cap reveal" style={`transition-delay: ${(i % 3) * 60}ms`}>
+              <div class="cap-num">[{c.num}]</div>
+              <div class="cap-name">{c.name}</div>
+              <div class="cap-desc">{c.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section bg-2">
+      <div class="shell">
+        <SectionLabel num="B" name="Process" right="From brief to roll-out" />
+        <div class="process">
+          {s.process.map((p, i) => (
+            <div class="process-step reveal" style={`transition-delay: ${i * 60}ms`}>
+              <div class="process-num">{p.num}</div>
+              <div class="process-name">{p.name}</div>
+              <div class="process-desc">{p.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="section">
+      <div class="shell">
+        <SectionLabel num="C" name="Industries served" right="Where the practice plays" />
+        <div class="grid12">
+          <div style="grid-column: span 5">
+            <h2 class="h2 reveal">Most often briefed by{regulated ? ' regulated' : ''} clients in:</h2>
+          </div>
+          <div style="grid-column: 7 / -1">
+            <div class="pill-list reveal reveal-delay-1" style="gap: var(--s-3)">
+              {s.industries.map((i) => <Chip>{i}</Chip>)}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sample work -->
+    <section class="section bg-2">
+      <div class="shell">
+        <SectionLabel num="D" name="Sample work" right="Selected engagements" />
+        <div class="work">
+          {s.work.map((w) => (
+            <div class="work-card" style="grid-column: span 4">
+              <Placeholder ratio="4/3" label={w.tag} />
+              <div class="meta">
+                <div>
+                  <div class="mono muted">{w.tag}</div>
+                  <div class="title" style="margin-top: 6px">{w.title}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing (eDetailers) -->
+    {s.pricing && (
+      <section class="section">
+        <div class="shell">
+          <SectionLabel num="E" name="Productised pricing" right="No surprises · No quote cycles" />
+          <div class="pricing">
+            {s.pricing.map((t, i) => (
+              <div class:list={['tier', 'reveal', t.featured && 'featured', i === 1 && 'reveal-delay-1', i === 2 && 'reveal-delay-2']}>
+                <div class="tier-name">{t.name}</div>
+                <div class="tier-price">{t.price}<small>{t.priceSmall}</small></div>
+                <div class="tier-desc">{t.desc}</div>
+                <ul class="tier-list">
+                  {t.features.map((f) => <li>{f}</li>)}
+                </ul>
+                <Btn href="/contact" accent={t.featured}>Enquire</Btn>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <ContactCTA />
+  </div>
+</Base>
