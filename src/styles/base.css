@@ -415,14 +415,17 @@ html.no-js .reveal { opacity: 1; transform: none; transition: none; }
 .footer { padding-top: var(--s-9); padding-bottom: var(--s-5); border-top: 1px solid var(--line); }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: var(--s-7); }
 .footer-col h4 { font-family: var(--ff-mono); font-size: var(--fs-mono); color: var(--fg-muted); margin-bottom: var(--s-4); text-transform: uppercase; letter-spacing: 0.08em; }
-.footer-col a { display: block; padding: 4px 0; transition: color .2s; }
-.footer-col a:hover { color: var(--accent); }
+/* Plain footer links stack; the CTA button must keep its own .btn layout. */
+.footer-col a:not(.btn) { display: block; padding: 4px 0; transition: color .2s; }
+.footer-col a:not(.btn):hover { color: var(--accent); }
 .footer-brand-display {
   font-family: var(--ff-display);
   font-weight: 500;
-  font-size: clamp(80px, 16vw, 320px);
+  /* Sized to keep "GROUP 24/7" on a single line across viewports. */
+  font-size: clamp(40px, 13.5vw, 210px);
   line-height: 0.9;
   letter-spacing: -0.04em;
+  white-space: nowrap;
   padding-top: var(--s-7);
   border-top: 1px solid var(--line);
   margin-top: var(--s-7);
