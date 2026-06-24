@@ -5,6 +5,7 @@
 ## Pages
 - [Home](https://group247ww.com/): Studio overview, positioning, featured work, global team.
 - [What We Do](https://group247ww.com/what-we-do): All five practices; why a single integrated studio.
+- [How We Work](https://group247ww.com/how-we-work): Briefing, one workflow, approvals (incl. MLR/PromoMats), version control, QA, localisation, repeat-work improvements; procurement confidence.
 - [Packaging](https://group247ww.com/packaging): Structural + graphic packaging, pharma compliance, premium finishes, multi-market rollout.
 - [Point of Sale](https://group247ww.com/point-of-sale): POS displays, in-store signage, retail environments, vendor management.
 - [Digital](https://group247ww.com/digital): GEO-first websites, microsites, performance, design systems, headless CMS, AI-assisted dev.

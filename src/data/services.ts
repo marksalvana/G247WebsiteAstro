@@ -19,9 +19,9 @@ export interface HomeService {
 export const HOME_SERVICES: HomeService[] = [
   { num: '01', name: 'Packaging', slug: 'packaging', meta: 'Shelf · Pharma · Premium', desc: 'Structural and graphic packaging for brands competing in the most demanding categories — from regulated pharma to FMCG hero SKUs.' },
   { num: '02', name: 'Point of Sale', slug: 'point-of-sale', meta: 'Retail · POS · Display', desc: 'Display, signage and in-store environments designed to be specified, produced and rolled out at scale across markets.' },
-  { num: '03', name: 'Digital', slug: 'digital', meta: 'Web · GEO · Performance', desc: 'Websites, microsites, and digital systems built GEO-first so the AI era can find, read and recommend your brand.' },
-  { num: '04', name: 'Advertising & Collateral', slug: 'advertising', meta: 'ATL · BTL · Print', desc: 'Concept-to-final-art campaigns for screen and print, executed with senior craft and AI-empowered production speed.' },
-  { num: '05', name: 'eDetailers', slug: 'edetailers', meta: 'Pharma · Veeva · Compliance', desc: 'Veeva-ready eDetailers built by a team that lives in regulated content. Approval-ready first time, every time.' },
+  { num: '03', name: 'Digital', slug: 'digital', meta: 'Web · Search · Performance', desc: 'Websites, microsites and digital systems built so search engines and AI assistants can actually find, read and recommend your brand.' },
+  { num: '04', name: 'Advertising & Collateral', slug: 'advertising', meta: 'ATL · BTL · Print', desc: 'Concept-to-final-art campaigns for screen and print, made by senior people with a production process tuned for speed.' },
+  { num: '05', name: 'eDetailers', slug: 'edetailers', meta: 'Pharma · Veeva · Compliance', desc: 'Veeva-ready eDetailers built by a team that lives in regulated content — made to move through review with fewer rounds.' },
 ];
 
 export interface Capability { num: string; name: string; desc: string; }
@@ -55,7 +55,7 @@ export const SERVICE_DETAILS: Record<ServiceSlug, ServiceDetail> = {
     lede: 'Structural and graphic packaging for brands competing in the most demanding categories — from regulated pharma to FMCG hero SKUs that need to win the shelf.',
     capabilities: [
       { num: '01', name: 'Range design', desc: 'Master brand systems and tiered architecture across 20–200 SKU portfolios.' },
-      { num: '02', name: 'Pharma compliance', desc: 'TGA, FDA, EMA copy compliance built into the production loop. Approval-ready first time.' },
+      { num: '02', name: 'Pharma compliance', desc: 'TGA, FDA and EMA copy requirements built into the production loop, so artwork is ready to move through review.' },
       { num: '03', name: 'Structural / dieline', desc: 'Mock-ups, dielines, and pre-press files ready for any vendor, any market.' },
       { num: '04', name: 'Premium finishes', desc: 'Foils, embosses, soft-touch — speced and proofed with our production partners.' },
       { num: '05', name: 'Multi-market rollout', desc: 'Local-language adaptation across AU, SEA, and Greater China without losing brand integrity.' },
@@ -102,10 +102,10 @@ export const SERVICE_DETAILS: Record<ServiceSlug, ServiceDetail> = {
   },
   digital: {
     num: '03', name: 'Digital', slug: 'digital', tag: 'Practice',
-    lede: 'Websites, microsites, and digital systems built GEO-first so the AI era can find, read and recommend your brand. Senior dev team, no template factories.',
+    lede: 'Websites, microsites and digital systems built so search engines — and AI assistants — can actually find, read and recommend your brand. A senior dev team, no template factories.',
     capabilities: [
-      { num: '01', name: 'GEO-first web', desc: 'Architected for crawler-readable content. The era of "Google can\'t see your site" ends here.' },
-      { num: '02', name: 'Performance', desc: 'Core Web Vitals as a non-negotiable. Fast, accessible, lean.' },
+      { num: '01', name: 'Search & AI-readable', desc: 'Built so search engines and AI assistants can read, understand and recommend your content — not just index it.' },
+      { num: '02', name: 'Performance', desc: 'Fast, accessible and lean, with Core Web Vitals treated as a real target — not an afterthought.' },
       { num: '03', name: 'Microsite & campaign', desc: 'Launch microsites, product pages, and lead-gen experiences with full analytics built in.' },
       { num: '04', name: 'Design systems', desc: 'Modular component libraries that scale with your in-house team.' },
       { num: '05', name: 'Headless CMS', desc: 'WordPress, Sanity, Contentful — picked for the editor experience, not the agency margin.' },
@@ -127,7 +127,7 @@ export const SERVICE_DETAILS: Record<ServiceSlug, ServiceDetail> = {
   },
   advertising: {
     num: '04', name: 'Advertising & Collateral', slug: 'advertising', tag: 'Practice',
-    lede: 'Concept-to-final-art campaigns for screen and print, executed with senior craft and AI-empowered production speed.',
+    lede: 'Concept-to-final-art campaigns for screen and print, made by senior people with a production process tuned for speed.',
     capabilities: [
       { num: '01', name: 'Campaign concepts', desc: 'Big-idea concepts that travel across paid, owned and earned channels.' },
       { num: '02', name: 'Print collateral', desc: 'Brochures, sales tools, annual reports — designed and final-arted in-house.' },
@@ -152,7 +152,7 @@ export const SERVICE_DETAILS: Record<ServiceSlug, ServiceDetail> = {
   },
   edetailers: {
     num: '05', name: 'eDetailers', slug: 'edetailers', tag: 'Practice · NEW for 2026',
-    lede: 'Veeva-ready eDetailers built by a team that lives in regulated content. Approval-ready first time, every time. Productised pricing, predictable turnaround.',
+    lede: 'Veeva-ready eDetailers built by a team that lives in regulated content — made to move through MLR/PromoMats review with fewer rounds. Productised pricing, predictable turnaround.',
     capabilities: [
       { num: '01', name: 'Veeva CRM-ready', desc: 'Built to Veeva specification — drop straight into your reps’ iPads.' },
       { num: '02', name: 'Approval-ready', desc: 'MLR/PromoMats workflow built into our process. We speak your reviewers’ language.' },

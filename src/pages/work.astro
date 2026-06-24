@@ -3,12 +3,13 @@ import Base from '@layouts/Base.astro';
 import Tag from '@components/Tag.astro';
 import Chip from '@components/Chip.astro';
 import Placeholder from '@components/Placeholder.astro';
+import SectionLabel from '@components/SectionLabel.astro';
 import ContactCTA from '@components/ContactCTA.astro';
-import { WORK } from '@data/site';
+import { WORK, CASE_STUDIES } from '@data/site';
 
-const title = 'Selected Work — Shipped, not pitched | Group 24/7 Worldwide';
+const title = 'Selected Work — Proof, not just labels | Group 24/7 Worldwide';
 const description =
-  'A representative sample of recent G247 engagements across pharma, FMCG, financial services, healthcare and retail — packaging, POS, digital, advertising and eDetailers.';
+  'Recent G247 engagements told as challenge → what we delivered → practical value. De-identified mini case studies across pharma, FMCG, finserv, healthcare and retail.';
 
 const industries = ['All', ...Array.from(new Set(WORK.map((w) => w.industry)))];
 ---
@@ -25,18 +26,55 @@ const industries = ['All', ...Array.from(new Set(WORK.map((w) => w.industry)))];
           <span style="color: var(--accent); font-style: italic; font-weight: 400">Shipped, not pitched.</span>
         </h1>
         <p class="lede reveal reveal-delay-1">
-          A representative sample of recent engagements. Many client projects are NDA — happy to
-          walk you through the full portfolio in a brief introductory call.
+          Each example below is told the way buyers actually weigh it up: the challenge, what we
+          delivered, and the practical value. Many client projects are under NDA, so some are
+          de-identified — happy to walk you through the full portfolio in a short call.
         </p>
       </div>
     </section>
 
+    <!-- MINI CASE STUDIES -->
     <section class="section">
       <div class="shell">
+        <SectionLabel num="01" name="Case studies" right="Challenge · Delivered · Value" />
+        <div class="cases">
+          {CASE_STUDIES.map((c) => (
+            <article class="case reveal">
+              <div class="case-head">
+                <span class="mono accent">{c.sector}</span>
+                <span class="mono muted">{c.scope}</span>
+              </div>
+              <div class="case-body">
+                <div class="case-col">
+                  <div class="case-label">Challenge</div>
+                  <p>{c.challenge}</p>
+                </div>
+                <div class="case-col">
+                  <div class="case-label">What we delivered</div>
+                  <p>{c.delivered}</p>
+                </div>
+                <div class="case-col">
+                  <div class="case-label">Practical value</div>
+                  <p>{c.value}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+        <p class="mono muted reveal" style="margin-top: var(--s-6)">
+          ↳ De-identified examples while we finalise approved, named case studies.
+        </p>
+      </div>
+    </section>
+
+    <!-- SELECTED WORK GRID -->
+    <section class="section bg-2">
+      <div class="shell">
+        <SectionLabel num="02" name="More selected work" right="2024 → 2026" />
         <div class="row between" style="margin-bottom: var(--s-7); flex-wrap: wrap; gap: 16px">
           <div class="row gap-3" style="flex-wrap: wrap" id="work-filters">
             {industries.map((i) => (
-              <button class="chip work-filter" data-filter={i} class:list={['chip', 'work-filter', i === 'All' && 'is-active']}>{i}</button>
+              <button class:list={['chip', 'work-filter', i === 'All' && 'is-active']} data-filter={i}>{i}</button>
             ))}
           </div>
           <div class="mono muted" id="work-count">{WORK.length} of {WORK.length} projects</div>
@@ -53,6 +91,7 @@ const industries = ['All', ...Array.from(new Set(WORK.map((w) => w.industry)))];
                 </div>
                 <Chip>{w.industry}</Chip>
               </div>
+              <p class="work-value">{w.value}</p>
             </div>
           ))}
         </div>

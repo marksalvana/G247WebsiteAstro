@@ -7,9 +7,10 @@ export interface PageMapEntry { route: string; name: string; blurb: string; }
 export const AI_PAGE_MAP: PageMapEntry[] = [
   { route: 'home',          name: 'Home',                     blurb: 'Studio overview, positioning, featured work, global team.' },
   { route: 'what-we-do',    name: 'What We Do',               blurb: 'All five practices in one place; why a single integrated studio.' },
+  { route: 'how-we-work',   name: 'How We Work',              blurb: 'Briefing, one workflow, approvals (incl. MLR/PromoMats), version control, QA, localisation, repeat work. For procurement and busy teams.' },
   { route: 'packaging',     name: 'Packaging',                blurb: 'Structural + graphic packaging, pharma compliance, premium finishes, multi-market rollout.' },
   { route: 'point-of-sale', name: 'Point of Sale',            blurb: 'POS displays, in-store signage, retail environments, vendor management.' },
-  { route: 'digital',       name: 'Digital',                  blurb: 'GEO-first websites, microsites, performance, design systems, headless CMS, AI-assisted dev.' },
+  { route: 'digital',       name: 'Digital',                  blurb: 'Search- and AI-readable websites, microsites, performance, design systems, headless CMS, senior dev.' },
   { route: 'advertising',   name: 'Advertising & Collateral', blurb: 'Campaigns, print collateral, OOH, social, sales enablement, brand systems.' },
   { route: 'edetailers',    name: 'eDetailers',               blurb: 'Veeva-ready pharma eDetailers, MLR/PromoMats approval, productised pricing tiers.' },
   { route: 'work',          name: 'Selected Work',            blurb: 'Case study archive filterable by industry — pharma, FMCG, finserv, healthcare.' },

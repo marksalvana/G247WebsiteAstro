@@ -1,0 +1,137 @@
+---
+import Base from '@layouts/Base.astro';
+import Tag from '@components/Tag.astro';
+import Btn from '@components/Btn.astro';
+import SectionLabel from '@components/SectionLabel.astro';
+import ContactCTA from '@components/ContactCTA.astro';
+import { HOW_WE_WORK, PROCUREMENT, REGIONAL, SITE } from '@data/site';
+
+const title = 'How We Work — Briefs, approvals, versions, rollout | Group 24/7 Worldwide';
+const description =
+  'How G247 delivers: a structured brief, one team and workflow, approvals (including MLR/PromoMats), version control, QA checks, localisation and repeat-work improvements — built to reduce risk and rework.';
+
+// FAQ schema helps answer-engines surface the process directly.
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: HOW_WE_WORK.map((s) => ({
+    '@type': 'Question',
+    name: s.name,
+    acceptedAnswer: { '@type': 'Answer', text: s.desc },
+  })),
+};
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'How Group 24/7 Worldwide delivers work',
+  description,
+  step: HOW_WE_WORK.map((s, i) => ({ '@type': 'HowToStep', position: i + 1, name: s.name, text: s.desc })),
+  url: new URL('/how-we-work', SITE.url).href,
+};
+---
+<Base title={title} description={description} route="how-we-work" schema={[faqSchema, howToSchema]}>
+  <div class="page">
+    <section class="page-header">
+      <div class="shell">
+        <div class="breadcrumb">
+          <Tag dot={false}>↤ Home</Tag>
+          <Tag dot={false} num="00 / 02">How we work</Tag>
+        </div>
+        <h1 class="h1 title reveal">
+          How the work<br />
+          actually <span style="color: var(--accent); font-style: italic; font-weight: 400">gets done.</span><br />
+          <span class="stroke">Fewer handoffs, less rework.</span>
+        </h1>
+        <p class="lede reveal reveal-delay-1">
+          Most of the cost and risk in creative work isn't the design — it's the handoffs, the rework,
+          the version mix-ups and the scramble before a deadline. Here's how we keep those down: one
+          senior team, one workflow, and a process built around your approvals, your markets and your timelines.
+        </p>
+      </div>
+    </section>
+
+    <!-- The workflow -->
+    <section class="section">
+      <div class="shell">
+        <SectionLabel num="A" name="The workflow" right="Brief → delivery" />
+        <div class="caps">
+          {HOW_WE_WORK.map((s, i) => (
+            <div class="cap reveal" style={`transition-delay: ${(i % 3) * 60}ms`}>
+              <div class="cap-num">[{s.num}]</div>
+              <div class="cap-name">{s.name}</div>
+              <div class="cap-desc">{s.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Procurement confidence -->
+    <section class="section bg-2">
+      <div class="shell">
+        <SectionLabel num="B" name="For procurement" right="Risk, detail, repeatability" />
+        <div class="grid12" style="margin-bottom: var(--s-7)">
+          <div style="grid-column: span 7">
+            <h2 class="h2 reveal">
+              Easy to buy from,<br />
+              <span style="color: var(--accent); font-style: italic; font-weight: 400">easy to work with,</span><br />
+              easy to come back to.
+            </h2>
+          </div>
+          <div style="grid-column: 9 / -1; align-self: end">
+            <p class="lede reveal reveal-delay-1">
+              One studio, one contract and one accountable team across every discipline — so there's
+              less to manage and less that can fall between suppliers.
+            </p>
+          </div>
+        </div>
+        <div class="caps">
+          {PROCUREMENT.map((p, i) => (
+            <div class="cap reveal" style={`transition-delay: ${(i % 3) * 60}ms`}>
+              <div class="cap-num">[{String(i + 1).padStart(2, '0')}]</div>
+              <div class="cap-name">{p.name}</div>
+              <div class="cap-desc">{p.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Regional rollout -->
+    <section class="section">
+      <div class="shell">
+        <SectionLabel num="C" name="ANZ & APAC rollout" right="One master, many markets" />
+        <div class="grid12" style="margin-bottom: var(--s-7)">
+          <div style="grid-column: span 7">
+            <h2 class="h2 reveal">
+              Built once,<br />
+              <span style="color: var(--accent); font-style: italic; font-weight: 400">rolled out everywhere</span><br />
+              you need it.
+            </h2>
+          </div>
+          <div style="grid-column: 9 / -1; align-self: end">
+            <p class="lede reveal reveal-delay-1">
+              Production, artwork and translation sit under one roof across Sydney, Manila, Bangkok and
+              Shanghai — so regional versions don't mean separate agencies, separate briefs and separate rebuilds.
+            </p>
+          </div>
+        </div>
+        <div class="caps">
+          {REGIONAL.map((r, i) => (
+            <div class="cap reveal" style={`transition-delay: ${(i % 4) * 60}ms`}>
+              <div class="cap-num">[{String(i + 1).padStart(2, '0')}]</div>
+              <div class="cap-name">{r.name}</div>
+              <div class="cap-desc">{r.desc}</div>
+            </div>
+          ))}
+        </div>
+        <div class="row gap-4 reveal" style="margin-top: var(--s-7); flex-wrap: wrap">
+          <Btn href="/work" accent>See the proof</Btn>
+          <Btn href="/what-we-do" ghost>What we do</Btn>
+        </div>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </div>
+</Base>

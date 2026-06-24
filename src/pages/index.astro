@@ -8,11 +8,11 @@ import SectionLabel from '@components/SectionLabel.astro';
 import ServiceRows from '@components/ServiceRows.astro';
 import Placeholder from '@components/Placeholder.astro';
 import OfficeCard from '@components/OfficeCard.astro';
-import { HERO_CYCLE_WORDS, HOME_WORK, HOME_VALUES, HOME_OFFICES } from '@data/site';
+import { HERO_CYCLE_WORDS, HOME_WORK, HOME_VALUES, HOME_OFFICES, WHO_WE_HELP, HOW_WE_WORK, REGIONAL } from '@data/site';
 
 const title = 'Group 24/7 Worldwide — Perfect design, flawless execution';
 const description =
-  'Group 24/7 Worldwide (G247) is an integrated creative and production studio — packaging, point of sale, digital, advertising and pharma eDetailers. Senior-led, AI-empowered, global team across Sydney, Manila, Bangkok and Shanghai.';
+  'Group 24/7 Worldwide (G247) is an integrated creative and production studio — packaging, point of sale, digital, advertising and pharma eDetailers. One senior-led team across Sydney, Manila, Bangkok and Shanghai, built for fewer handoffs and on-time delivery.';
 ---
 <Base title={title} description={description} route="home">
   <div class="page">
@@ -30,22 +30,22 @@ const description =
             <div>
               <span class="accent hero-cycle-word" data-hero-cycle data-words={JSON.stringify(HERO_CYCLE_WORDS)}>{HERO_CYCLE_WORDS[0]}</span>
             </div>
-            <div><span class="outline">For brands</span> that demand more.</div>
+            <div><span class="outline">On deadline,</span> across markets.</div>
           </h1>
         </div>
 
         <div class="hero-sub reveal reveal-delay-1">
           <p class="lede">
-            We build brands for a world in constant change — integrating two decades of
-            production heritage with AI-empowered digital services, and the exacting
-            standards the world's most demanding clients require.
+            Packaging, point of sale, digital, advertising and pharma eDetailers — produced by
+            one senior team across Sydney, Manila, Bangkok and Shanghai. Fewer handoffs, fewer
+            revisions, and work that's ready to ship when you need it.
           </p>
           <div style="display: grid; align-content: end; gap: 16px">
             <div class="pill-list">
-              <Chip>True Value</Chip>
-              <Chip>AI-empowered</Chip>
-              <Chip>Pharma-grade</Chip>
-              <Chip>Global delivery</Chip>
+              <Chip>Fewer handoffs</Chip>
+              <Chip>Senior-led</Chip>
+              <Chip>Pharma & regulated</Chip>
+              <Chip>Multi-market rollout</Chip>
             </div>
             <button type="button" class="ai-herobar" data-ai-open data-cursor="text" aria-haspopup="dialog">
               <span class="ai-spark">✦</span>
@@ -60,7 +60,7 @@ const description =
     <!-- TICKER -->
     <Marquee items={[
       'Packaging', 'Point of Sale', 'Digital', 'eDetailers', 'Advertising',
-      'Veeva-ready', 'Multi-market', 'AI-empowered', 'Senior-led', 'Always-on',
+      'Veeva-ready', 'Multi-market', 'Fewer handoffs', 'Senior-led', 'Always-on',
     ]} />
 
     <!-- WHAT WE DO -->
@@ -69,12 +69,13 @@ const description =
         <SectionLabel num="01" name="What we do" right="Five practices · One studio" />
         <div class="grid12" style="margin-bottom: var(--s-7)">
           <div style="grid-column: span 5">
-            <h2 class="h2 reveal">A full-service studio for brands that can't afford to look anything less than exceptional.</h2>
+            <h2 class="h2 reveal">One team across packaging, retail, digital and pharma — so your brand stays consistent from the shelf to the screen.</h2>
           </div>
           <div style="grid-column: 7 / -1">
             <p class="lede reveal reveal-delay-1">
               Most agencies pick a lane: digital, or print, or production. We work across
-              the entire brand journey because the brief almost never stops at the lane line.
+              the whole brand journey because the brief almost never stops at the lane line —
+              and every handoff between suppliers is where time, money and consistency get lost.
             </p>
           </div>
         </div>
@@ -84,10 +85,40 @@ const description =
       </div>
     </section>
 
-    <!-- WORK -->
+    <!-- WHO WE HELP -->
     <section class="section bg-2">
       <div class="shell">
-        <SectionLabel num="02" name="Selected work" right="2024 → 2026" />
+        <SectionLabel num="02" name="Who we help" right="The teams we work with" />
+        <div class="grid12" style="margin-bottom: var(--s-7)">
+          <div style="grid-column: span 7">
+            <h2 class="h2 reveal">We make life easier for the<br />
+              <span style="color: var(--accent); font-style: italic; font-weight: 400">people responsible</span> for shipping the work.</h2>
+          </div>
+        </div>
+        <div class="caps">
+          {WHO_WE_HELP.map((b, i) => (
+            <div class="cap reveal" style={`transition-delay: ${(i % 3) * 60}ms`}>
+              <div class="cap-num">[{b.num}]</div>
+              <div class="cap-name">{b.name}</div>
+              <div class="cap-desc">{b.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section">
+      <div class="shell">
+        <SectionLabel num="03" name="Selected work" right="Proof, not just labels" />
+        <div class="grid12" style="margin-bottom: var(--s-7)">
+          <div style="grid-column: span 8">
+            <p class="lede reveal">
+              A few recent engagements, told as challenge → what we delivered → the practical value.
+              Project names are illustrative while we finalise approved case studies.
+            </p>
+          </div>
+        </div>
         <div class="work">
           <div class="work-card feat" style="grid-column: span 7">
             <Placeholder ratio="16/10" label={HOME_WORK[0].ph} />
@@ -131,7 +162,36 @@ const description =
           </div>
         </div>
         <div style="margin-top: var(--s-7)">
-          <Btn href="/work" ghost>Browse the archive</Btn>
+          <Btn href="/work" ghost>See the case studies</Btn>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW WE WORK -->
+    <section class="section bg-2">
+      <div class="shell">
+        <SectionLabel num="04" name="How we work" right="Fewer handoffs · Less rework" />
+        <div class="grid12" style="align-items: start">
+          <div style="grid-column: span 6">
+            <h2 class="h2 reveal">
+              The hard part isn't the design —<br />
+              <span style="color: var(--accent); font-style: italic; font-weight: 400">it's everything around it.</span>
+            </h2>
+            <p class="lede reveal reveal-delay-1" style="margin-top: var(--s-5)">
+              Briefs, approvals, version control, QA, localisation and the rollout. We run all of it
+              as one team, so there's less to chase, less to re-explain, and less that breaks before a deadline.
+            </p>
+            <div class="row gap-4 reveal reveal-delay-2" style="margin-top: var(--s-6); flex-wrap: wrap">
+              <Btn href="/how-we-work" accent>How we work</Btn>
+            </div>
+          </div>
+          <div style="grid-column: 8 / -1">
+            <ol class="how-list reveal reveal-delay-1">
+              {HOW_WE_WORK.map((s) => (
+                <li><span class="how-num">{s.num}</span> <span>{s.name}</span></li>
+              ))}
+            </ol>
+          </div>
         </div>
       </div>
     </section>
@@ -139,7 +199,7 @@ const description =
     <!-- TRUE VALUE -->
     <section class="section">
       <div class="shell">
-        <SectionLabel num="03" name="True Value" right="The math of working smarter" />
+        <SectionLabel num="05" name="True Value" right="The math of working smarter" />
         <div class="grid12">
           <div style="grid-column: span 7">
             <h2 class="h1 reveal">
@@ -178,18 +238,18 @@ const description =
             <div class="stat-desc">Production across AU, SEA and Greater China — local-language adaptation built in.</div>
           </div>
           <div class="reveal reveal-delay-3">
-            <div class="stat-num">~40<span class="mono" style="font-size: 20px; color: var(--fg-muted); margin-left: 6px">%</span></div>
-            <div class="stat-label">Faster than market</div>
-            <div class="stat-desc">AI-assisted draft + senior review cuts content production time substantially.</div>
+            <div class="stat-num">01</div>
+            <div class="stat-label">Senior lead per account</div>
+            <div class="stat-desc">One accountable team from brief to final art — fewer handoffs, less lost between suppliers.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- GLOBAL TEAM -->
+    <!-- GLOBAL TEAM + REGIONAL ROLLOUT -->
     <section class="section bg-2">
       <div class="shell">
-        <SectionLabel num="04" name="Global team" right="One studio · Four timezones" />
+        <SectionLabel num="06" name="Global team" right="One studio · Four timezones" />
         <div class="grid12" style="margin-bottom: var(--s-7)">
           <div style="grid-column: span 7">
             <h2 class="h2 reveal">Round-the-clock execution<br />when it counts.</h2>
@@ -198,13 +258,34 @@ const description =
         <div class="offices">
           {HOME_OFFICES.map((o, i) => <OfficeCard office={o} idx={i} />)}
         </div>
+
+        <div class="grid12" style="margin-top: var(--s-9); margin-bottom: var(--s-6)">
+          <div style="grid-column: span 7">
+            <h3 class="h3 reveal">One master, many markets — ANZ &amp; APAC rollout, coordinated.</h3>
+          </div>
+          <div style="grid-column: 9 / -1; align-self: end">
+            <p class="reveal reveal-delay-1" style="color: var(--fg-2)">
+              Production, artwork and translation under one roof — so regional versions don't mean
+              separate agencies, separate briefs and separate rebuilds.
+            </p>
+          </div>
+        </div>
+        <div class="caps">
+          {REGIONAL.map((r, i) => (
+            <div class="cap reveal" style={`transition-delay: ${(i % 4) * 60}ms`}>
+              <div class="cap-num">[{String(i + 1).padStart(2, '0')}]</div>
+              <div class="cap-name">{r.name}</div>
+              <div class="cap-desc">{r.desc}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 
     <!-- VALUES -->
     <section class="section">
       <div class="shell">
-        <SectionLabel num="05" name="Operating values" right="Six commitments" />
+        <SectionLabel num="07" name="Operating values" right="Six commitments" />
         <div class="grid12" style="margin-bottom: var(--s-7)">
           <div style="grid-column: span 7">
             <h2 class="h2 reveal">The values that describe<br />
