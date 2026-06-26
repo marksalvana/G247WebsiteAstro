@@ -1,5 +1,6 @@
 ---
 import Clock from './Clock.astro';
+import Logo from './Logo.astro';
 import { NAV_ITEMS } from '@data/site';
 interface Props { route?: string; }
 const { route = 'home' } = Astro.props;
@@ -8,8 +9,8 @@ const isActive = (id: string) =>
 ---
 <header class="nav">
   <div class="nav-inner">
-    <a class="brand" href="/">
-      <span class="brand-mark">24/7</span>
+    <a class="brand" href="/" aria-label="Group 24/7 Worldwide — 20 years">
+      <Logo class="brand-logo" />
       <span class="brand-name">Group 24/7 Worldwide</span>
     </a>
     <nav class="nav-menu" aria-label="Primary">

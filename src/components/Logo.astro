@@ -1,0 +1,36 @@
+---
+/**
+ * 20 Years of Group 24/7 — anniversary lockup.
+ * Drawn inline so it inherits Hanken Grotesk (already loaded site-wide)
+ * and the brand accent; crisp at any size on the dark canvas.
+ */
+interface Props { class?: string; }
+const { class: cls } = Astro.props;
+---
+<svg
+  class:list={['logo', cls]}
+  viewBox="0 0 118 56"
+  width="118" height="56"
+  role="img"
+  aria-label="20 Years of Group 24/7"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <linearGradient id="logo-gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFC42E" />
+      <stop offset="1" stop-color="#F2941B" />
+    </linearGradient>
+  </defs>
+  <text
+    x="0" y="46"
+    font-family="'Hanken Grotesk', system-ui, sans-serif"
+    font-weight="800" font-size="54" letter-spacing="-2"
+  ><tspan fill="url(#logo-gold)">2</tspan><tspan fill="#E8392A">0</tspan></text>
+  <g
+    font-family="'Hanken Grotesk', system-ui, sans-serif"
+    font-weight="800" font-size="15" fill="#EFEAE1" letter-spacing="0.3"
+  >
+    <text x="66" y="25">YEARS</text>
+    <text x="66" y="44">OF</text>
+  </g>
+</svg>
