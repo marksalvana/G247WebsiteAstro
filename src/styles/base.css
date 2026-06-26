@@ -175,8 +175,8 @@ html.no-js .reveal { opacity: 1; transform: none; transition: none; }
 }
 .nav-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--s-6); padding: var(--s-4) var(--gutter); max-width: var(--maxw); margin: 0 auto; }
 .brand { display: inline-flex; align-items: center; }
-.brand-logo { height: 34px; width: auto; display: block; }
-@media (max-width: 560px) { .brand-logo { height: 30px; } }
+.brand-logo { height: 46px; width: auto; display: block; }
+@media (max-width: 560px) { .brand-logo { height: 34px; } }
 .nav-menu { display: flex; gap: var(--s-6); justify-content: center; }
 .nav-link {
   font-family: var(--ff-mono); font-size: var(--fs-mono);

@@ -31,8 +31,9 @@ function initCursor() {
   const over = (e: MouseEvent) => {
     const target = e.target as Element;
     const hot = target.closest('a, button, .nav-link, .svc-row, .work-card, .post, .cap, .office, .tier, [data-cursor="hover"]');
+    const noFx = target.closest('[data-cursor="default"]');
     const txt = target.closest('input, textarea, [data-cursor="text"]');
-    cursor.classList.toggle('is-hover', !!hot);
+    cursor.classList.toggle('is-hover', !!hot && !noFx);
     cursor.classList.toggle('is-text', !!txt);
   };
   const tick = () => {

@@ -1,34 +1,18 @@
 ---
 /**
- * Group 24/7 Worldwide — primary logo lockup.
- * White GROUP / WORLDWIDE wordmark flanking the red 24/7 disc.
- * Drawn inline so it inherits Hanken Grotesk (loaded site-wide) and
- * stays crisp at any size on the dark canvas.
+ * Group 24/7 Worldwide — animated "20 Years of Creativity" banner.
+ * Served straight from /public as an animated WebP (kept out of Astro's
+ * image pipeline so all frames survive); loops on its own, no JS.
  */
 interface Props { class?: string; }
 const { class: cls } = Astro.props;
 ---
-<svg
+<img
   class:list={['logo', cls]}
-  viewBox="0 0 760 140"
-  width="760" height="140"
-  role="img"
-  aria-label="Group 24/7 Worldwide"
-  xmlns="http://www.w3.org/2000/svg"
-  font-family="'Hanken Grotesk', system-ui, sans-serif"
->
-  <text
-    x="262" y="93" text-anchor="end"
-    font-weight="800" font-size="62" letter-spacing="-1" fill="#EFEAE1"
-  >GROUP</text>
-
-  <circle cx="310" cy="70" r="60" fill="#E8392A" />
-  <line x1="281" y1="105" x2="339" y2="35" stroke="#fff" stroke-width="9" stroke-linecap="round" />
-  <text x="295" y="60" text-anchor="middle" font-weight="800" font-size="30" fill="#fff">24</text>
-  <text x="330" y="101" text-anchor="middle" font-weight="800" font-size="30" fill="#fff">7</text>
-
-  <text
-    x="358" y="93" text-anchor="start"
-    font-weight="800" font-size="62" letter-spacing="-1" fill="#EFEAE1"
-  >WORLDWIDE</text>
-</svg>
+  src="/logo.webp"
+  width="728"
+  height="180"
+  alt="20 Years of Creativity — Group 24/7 Worldwide"
+  decoding="async"
+  fetchpriority="high"
+/>
