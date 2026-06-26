@@ -174,14 +174,9 @@ html.no-js .reveal { opacity: 1; transform: none; transition: none; }
   border-bottom: 1px solid var(--line);
 }
 .nav-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--s-6); padding: var(--s-4) var(--gutter); max-width: var(--maxw); margin: 0 auto; }
-.brand { display: inline-flex; align-items: center; gap: var(--s-4); }
-.brand-logo { height: 40px; width: auto; display: block; }
-.brand-name {
-  font-family: var(--ff-mono); font-size: var(--fs-mono);
-  text-transform: uppercase; letter-spacing: 0.08em;
-  padding-left: var(--s-4); border-left: 1px solid var(--line);
-}
-@media (max-width: 560px) { .brand-name { display: none; } }
+.brand { display: inline-flex; align-items: center; }
+.brand-logo { height: 34px; width: auto; display: block; }
+@media (max-width: 560px) { .brand-logo { height: 30px; } }
 .nav-menu { display: flex; gap: var(--s-6); justify-content: center; }
 .nav-link {
   font-family: var(--ff-mono); font-size: var(--fs-mono);
