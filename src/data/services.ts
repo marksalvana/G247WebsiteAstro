@@ -5,7 +5,8 @@ export type ServiceSlug =
   | 'point-of-sale'
   | 'digital'
   | 'advertising'
-  | 'edetailers';
+  | 'edetailers'
+  | 'video';
 
 export interface HomeService {
   num: string;
@@ -19,9 +20,10 @@ export interface HomeService {
 export const HOME_SERVICES: HomeService[] = [
   { num: '01', name: 'Packaging', slug: 'packaging', meta: 'Shelf · Pharma · Premium', desc: 'Structural and graphic packaging for brands competing in the most demanding categories — from regulated pharma to FMCG hero SKUs.' },
   { num: '02', name: 'Point of Sale', slug: 'point-of-sale', meta: 'Retail · POS · Display', desc: 'Display, signage and in-store environments designed to be specified, produced and rolled out at scale across markets.' },
-  { num: '03', name: 'Digital', slug: 'digital', meta: 'Web · Search · Performance', desc: 'Websites, microsites and digital systems built so search engines and AI assistants can actually find, read and recommend your brand.' },
+  { num: '03', name: 'Digital', slug: 'digital', meta: 'Web · Search · Performance', desc: 'Websites, microsites and digital systems, structured for SEO and AI-search visibility so people and search tools can find and understand your brand.' },
   { num: '04', name: 'Advertising & Collateral', slug: 'advertising', meta: 'ATL · BTL · Print', desc: 'Concept-to-final-art campaigns for screen and print, made by senior people with a production process tuned for speed.' },
   { num: '05', name: 'eDetailers', slug: 'edetailers', meta: 'Pharma · Veeva · Compliance', desc: 'Veeva-ready eDetailers built by a team that lives in regulated content — made to move through review with fewer rounds.' },
+  { num: '06', name: 'Video & Training Assets', slug: 'video', meta: 'Video · Motion · Training', desc: 'Video, motion and training content for launches, events, social and internal comms — from storyboards to editing, animation, localisation and versioning.' },
 ];
 
 export interface Capability { num: string; name: string; desc: string; }
@@ -66,13 +68,13 @@ export const SERVICE_DETAILS: Record<ServiceSlug, ServiceDetail> = {
       { num: '02', name: 'Design', desc: 'Concepts presented in context — on shelf, on screen, in hand.' },
       { num: '03', name: 'Refine', desc: 'Iterative refinement informed by compliance, retailer and consumer testing.' },
       { num: '04', name: 'Artwork', desc: 'Final-art, dielines, and proofs prepared for production.' },
-      { num: '05', name: 'Roll-out', desc: 'Multi-language, multi-market roll-out across our global production team.' },
+      { num: '05', name: 'Roll-out', desc: 'Multi-language, multi-market roll-out coordinated across our regional teams.' },
     ],
     industries: ['Pharmaceutical', 'OTC Health', 'FMCG', 'Premium Spirits', 'Aged Care', 'Personal Care'],
     work: [
-      { title: 'Centeril Rx Pack System', tag: 'Pharma · 14 markets' },
-      { title: 'Halo Foods — Shelf Reset', tag: 'FMCG · 28 SKUs' },
-      { title: 'Northland Spirits Premium', tag: 'Alcohol · Limited' },
+      { title: 'Global pharma pack system', tag: 'Pharma · 14 markets' },
+      { title: 'FMCG range refresh', tag: 'FMCG · 28 SKUs' },
+      { title: 'Premium spirits release', tag: 'Alcohol · Limited' },
     ],
   },
   'point-of-sale': {
@@ -95,34 +97,34 @@ export const SERVICE_DETAILS: Record<ServiceSlug, ServiceDetail> = {
     ],
     industries: ['Pharmacy Retail', 'Grocery', 'Department Store', 'Convenience', 'Specialty', 'Travel Retail'],
     work: [
-      { title: 'Pharmacy Counter Reset', tag: 'Retail · 1,200 stores' },
-      { title: 'Halo Endcap System', tag: 'Grocery · AU/NZ' },
-      { title: 'Bangkok Travel Retail Pop-Up', tag: 'Travel · BKK Suvarnabhumi' },
+      { title: 'Pharmacy counter rollout', tag: 'Retail · 1,200 stores' },
+      { title: 'FMCG endcap system', tag: 'Grocery · AU/NZ' },
+      { title: 'Travel-retail pop-up', tag: 'Travel · Airport' },
     ],
   },
   digital: {
     num: '03', name: 'Digital', slug: 'digital', tag: 'Practice',
-    lede: 'Websites, microsites and digital systems built so search engines — and AI assistants — can actually find, read and recommend your brand. A senior dev team, no template factories.',
+    lede: 'Websites, microsites and digital systems, structured so people, search engines and AI-search tools can find and understand the information that matters. A senior dev team, no template factories.',
     capabilities: [
-      { num: '01', name: 'Search & AI-readable', desc: 'Built so search engines and AI assistants can read, understand and recommend your content — not just index it.' },
+      { num: '01', name: 'SEO & AI-search visibility', desc: 'Structured so people, search engines and AI-search tools (sometimes called GEO) can find and understand your content — not just index it.' },
       { num: '02', name: 'Performance', desc: 'Fast, accessible and lean, with Core Web Vitals treated as a real target — not an afterthought.' },
       { num: '03', name: 'Microsite & campaign', desc: 'Launch microsites, product pages, and lead-gen experiences with full analytics built in.' },
       { num: '04', name: 'Design systems', desc: 'Modular component libraries that scale with your in-house team.' },
       { num: '05', name: 'Headless CMS', desc: 'WordPress, Sanity, Contentful — picked for the editor experience, not the agency margin.' },
-      { num: '06', name: 'AI-assisted dev', desc: 'AI-paired engineering for faster iteration without sacrificing senior craft.' },
+      { num: '06', name: 'Senior-led build', desc: 'Experienced engineers, using modern tooling where it genuinely speeds up iteration — without cutting corners on craft.' },
     ],
     process: [
-      { num: '01', name: 'Audit', desc: 'GEO, performance and content audit of your current site.' },
+      { num: '01', name: 'Audit', desc: 'Search visibility, performance and content audit of your current site.' },
       { num: '02', name: 'Architecture', desc: 'IA, content model and tech selection.' },
       { num: '03', name: 'Design', desc: 'Hi-fi design system in real components.' },
       { num: '04', name: 'Build', desc: 'Senior-led build with QA throughout.' },
-      { num: '05', name: 'Launch', desc: 'Performance pass, GEO validation, and post-launch care.' },
+      { num: '05', name: 'Launch', desc: 'Performance pass, search-visibility checks, and post-launch care.' },
     ],
     industries: ['Pharmaceutical', 'Financial Services', 'Insurance', 'B2B SaaS', 'Premium Consumer', 'Healthcare'],
     work: [
-      { title: 'Northwind Insurance Rebuild', tag: 'Finserv · AU/NZ' },
-      { title: 'Centeril Veeva Microsite', tag: 'Pharma · Restricted' },
-      { title: 'Asana Care — Lead Engine', tag: 'Health · Direct response' },
+      { title: 'ANZ insurer website rebuild', tag: 'Finserv · AU/NZ' },
+      { title: 'Pharma Veeva microsite', tag: 'Pharma · Restricted' },
+      { title: 'Aged-care lead engine', tag: 'Health · Direct response' },
     ],
   },
   advertising: {
@@ -145,9 +147,9 @@ export const SERVICE_DETAILS: Record<ServiceSlug, ServiceDetail> = {
     ],
     industries: ['B2B Tech', 'Healthcare', 'Financial Services', 'Consumer', 'Education', 'Non-Profit'],
     work: [
-      { title: 'Northwind Always-On', tag: 'Finserv · Social · AU' },
-      { title: 'Asana Care National Campaign', tag: 'Health · OOH+Print · AU' },
-      { title: 'GrowthIQ Sales Toolkit', tag: 'B2B · APAC' },
+      { title: 'Insurer always-on social', tag: 'Finserv · Social · AU' },
+      { title: 'Aged-care national campaign', tag: 'Health · OOH+Print · AU' },
+      { title: 'B2B sales toolkit', tag: 'B2B · APAC' },
     ],
   },
   edetailers: {
@@ -170,9 +172,9 @@ export const SERVICE_DETAILS: Record<ServiceSlug, ServiceDetail> = {
     ],
     industries: ['Pharmaceutical', 'Biotech', 'Medical Devices', 'Animal Health', 'Consumer Health', 'Diagnostics'],
     work: [
-      { title: 'Centeril Launch eDetailer', tag: 'Rx · 14 markets' },
-      { title: 'Halocort OTC Refresh', tag: 'OTC · AU/NZ' },
-      { title: 'MedTech Diagnostics Series', tag: 'Devices · APAC' },
+      { title: 'Rx launch eDetailer', tag: 'Rx · 14 markets' },
+      { title: 'OTC eDetailer refresh', tag: 'OTC · AU/NZ' },
+      { title: 'Diagnostics detailer series', tag: 'Devices · APAC' },
     ],
     pricing: [
       {
@@ -190,6 +192,31 @@ export const SERVICE_DETAILS: Record<ServiceSlug, ServiceDetail> = {
         desc: 'Multi-market roll-out across SEA and Greater China.',
         features: ['Master + 5+ locales', 'Local-language QA', 'Reviewer comms support', 'Asset library + governance'],
       },
+    ],
+  },
+  video: {
+    num: '06', name: 'Video & Training Assets', slug: 'video', tag: 'Practice · NEW for 2026',
+    lede: 'Practical video, motion and training content — for product launches, events, social and internal comms. From storyboards and editing to animation, localisation and versioning, made by senior people who know regulated and multi-market delivery.',
+    capabilities: [
+      { num: '01', name: 'Concept & storyboard', desc: 'Scripts and storyboards signed off before the expensive production work starts.' },
+      { num: '02', name: 'Editing & post', desc: 'Editing, grading and finishing for launch films, social cut-downs and event content.' },
+      { num: '03', name: 'Motion & animation', desc: 'Motion graphics and animation for explainers, product and training content.' },
+      { num: '04', name: 'Training & learning', desc: 'Product, process and learning videos your teams can actually use.' },
+      { num: '05', name: 'Localisation & versioning', desc: 'Captions, voiceover, local-language versions and market variants from one master.' },
+      { num: '06', name: 'Delivery formats', desc: 'Every ratio and format you need — social, web, presentation and broadcast.' },
+    ],
+    process: [
+      { num: '01', name: 'Brief', desc: 'Audience, message and where the video will be used.' },
+      { num: '02', name: 'Storyboard', desc: 'Script and storyboard signed off before production.' },
+      { num: '03', name: 'Produce', desc: 'Filming, editing, motion and sound.' },
+      { num: '04', name: 'Review', desc: 'Revision rounds tracked, with regulated review supported where needed.' },
+      { num: '05', name: 'Deliver', desc: 'Final masters, versions and formats, ready to publish.' },
+    ],
+    industries: ['Pharmaceutical', 'Healthcare', 'FMCG', 'Financial Services', 'B2B Tech', 'Education'],
+    work: [
+      { title: 'Global pharma launch film', tag: 'Rx · Multi-market' },
+      { title: 'Regional training series', tag: 'Health · Multi-language' },
+      { title: 'Product explainer set', tag: 'B2B · Social + web' },
     ],
   },
 };

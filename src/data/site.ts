@@ -30,16 +30,17 @@ export const FOOTER_CAPABILITIES = [
   { label: 'Digital', href: '/digital' },
   { label: 'Advertising', href: '/advertising' },
   { label: 'eDetailers', href: '/edetailers' },
+  { label: 'Video', href: '/video' },
 ];
 
 export interface Value { num: string; name: string; def: string; looks: string; }
 export const HOME_VALUES: Value[] = [
   { num: '01', name: 'Precision', def: 'Every pixel, word, and line of code is held to the standard our clients hired us for — and that their audiences will judge them by.', looks: 'Meticulous QA, design review, and quality checking before anything leaves the building.' },
-  { num: '02', name: 'Innovation', def: 'We embrace AI and emerging technology as a responsibility — to deliver better results, faster, at a standard a small team could not previously achieve alone.', looks: 'Active AI tool adoption, GEO exploration, modular content systems.' },
+  { num: '02', name: 'Innovation', def: 'We keep improving how we work — adopting useful technology, including AI, where it genuinely helps us deliver better results, faster, without cutting corners on craft.', looks: 'Continual improvement, useful tools reviewed by experienced people, modular content systems.' },
   { num: '03', name: 'Partnership', def: 'We operate as an embedded extension of our clients’ teams. Their brand standards, audiences, and business objectives become ours.', looks: 'Proactive comms, co-created briefs, shared KPIs.' },
   { num: '04', name: 'Integrity', def: 'We give honest advice, use technology responsibly, and hold ourselves accountable — even when honesty is not the easiest path.', looks: 'Transparent AI usage, clear IP governance, the confidence to push back on a brief.' },
-  { num: '05', name: 'Agility', def: 'Our lean structure and global team are our speed. We make decisions fast, pivot when needed, and deliver across markets — multi-language, multi-format, multi-timezone.', looks: 'Senior decision-makers on every account. Round-the-clock execution across AU/PH/TH/CN.' },
-  { num: '06', name: 'True Value', def: 'We work smarter — not just harder — to deliver more for less. Senior expertise and world-class execution at a cost that larger agencies cannot match.', looks: 'Transparent pricing, no unnecessary layers, AI-assisted delivery, a global team built to maximise output without inflating cost.' },
+  { num: '05', name: 'Agility', def: 'Our lean structure and global team are our speed. We make decisions fast, pivot when needed, and deliver across markets — multi-language, multi-format, multi-timezone.', looks: 'Senior decision-makers on every account. Regional teams keeping work moving across AU/PH/TH/CN timezones.' },
+  { num: '06', name: 'True Value', def: 'We work smarter — not just harder — to deliver more for less. Senior people and dependable execution, with a delivery model designed to use budgets carefully.', looks: 'Transparent pricing, no unnecessary layers, useful technology reviewed by people, a global team built to maximise output without inflating cost.' },
 ];
 
 export interface Office { flag: string; city: string; tz: string; meta: string; label: string; }
@@ -68,10 +69,10 @@ export const TEAM: TeamMember[] = [
 
 export interface HomeWork { title: string; tag: string; kind: string; ph: string; }
 export const HOME_WORK: HomeWork[] = [
-  { title: 'Centeril — Global Rx Launch', tag: 'Pharma', kind: 'eDetailer · Veeva', ph: 'Pack + screen system' },
-  { title: 'Halo Foods — Shelf Reset', tag: 'FMCG', kind: 'Packaging · POS', ph: 'Range refresh, 28 SKUs' },
-  { title: 'Northwind Insurance', tag: 'Financial Services', kind: 'Digital · GEO', ph: 'Site rebuild, AU + NZ' },
-  { title: 'Asana Aged Care', tag: 'Healthcare', kind: 'Brand · Print', ph: 'Identity + brochure system' },
+  { title: 'Global pharma launch', tag: 'Pharma', kind: 'eDetailer · Veeva', ph: 'Pack + screen system' },
+  { title: 'FMCG shelf reset', tag: 'FMCG', kind: 'Packaging · POS', ph: 'Range refresh, 28 SKUs' },
+  { title: 'ANZ insurer rebuild', tag: 'Financial Services', kind: 'Digital · Web', ph: 'Site rebuild, AU + NZ' },
+  { title: 'Aged-care identity', tag: 'Healthcare', kind: 'Brand · Print', ph: 'Identity + brochure system' },
 ];
 
 // Proof-led work cards: each carries a short challenge / delivered / value
@@ -90,55 +91,55 @@ export interface WorkItem {
 }
 export const WORK: WorkItem[] = [
   {
-    year: '2026', title: 'Centeril — Global Rx Launch', industry: 'Pharma', kind: 'eDetailer · Veeva', ratio: '16/10', size: 7,
+    year: '2026', title: 'Global pharma launch — eDetailer + pack', industry: 'Pharma', kind: 'eDetailer · Veeva', ratio: '16/10', size: 7,
     challenge: 'A new prescription product launching in 14 markets needed a Veeva eDetailer and pack system that could clear review in each market without being rebuilt every time.',
     delivered: 'A modular eDetailer and master pack system with local-language variants, built to each market’s MLR process and managed from one shared reference library.',
     value: 'One master, many markets — local teams adapted approved modules instead of starting over, and review cycles got shorter as reviewers saw consistent content.',
   },
   {
-    year: '2026', title: 'Northwind Insurance Rebuild', industry: 'Finserv', kind: 'Digital · Web', ratio: '16/12', size: 5,
+    year: '2026', title: 'ANZ insurer — website rebuild', industry: 'Finserv', kind: 'Digital · Web', ratio: '16/12', size: 5,
     challenge: 'An insurer’s site was slow, hard for search and AI assistants to read, and its enquiry forms were leaking leads.',
     delivered: 'A rebuild on a fast, crawler-readable stack with a clear content structure and tracked enquiry forms across AU and NZ.',
     value: 'Faster pages, content that’s easy to find and quote, and a clearer path from visit to enquiry.',
   },
   {
-    year: '2025', title: 'Halo Foods — Shelf Reset', industry: 'FMCG', kind: 'Packaging · POS', ratio: '4/3', size: 6,
+    year: '2025', title: 'FMCG range — shelf reset', industry: 'FMCG', kind: 'Packaging · POS', ratio: '4/3', size: 6,
     challenge: 'A 28-SKU range had drifted out of consistency across retailers and markets, slowing every new variant.',
     delivered: 'A tiered pack architecture, dielines and final art, all managed through a single artwork library with clear versioning.',
     value: 'One source of truth for artwork, fewer version mix-ups, and faster turnarounds on the next SKU.',
   },
   {
-    year: '2025', title: 'Asana Aged Care Identity', industry: 'Healthcare', kind: 'Brand · Print', ratio: '4/3', size: 6,
+    year: '2025', title: 'Aged-care provider — identity', industry: 'Healthcare', kind: 'Brand · Print', ratio: '4/3', size: 6,
     challenge: 'A care provider needed a brand and brochure system that local teams could use without going back to an agency each time.',
     delivered: 'An identity and templated brochure system with simple rules and reusable layouts.',
     value: 'Local teams produce on-brand materials themselves — fewer small briefs, lower cost per piece.',
   },
   {
-    year: '2025', title: 'Northland Spirits Premium', industry: 'Alcohol', kind: 'Packaging · Premium', ratio: '4/3', size: 4,
+    year: '2025', title: 'Premium spirits — limited release', industry: 'Alcohol', kind: 'Packaging · Premium', ratio: '4/3', size: 4,
     challenge: 'A limited premium release needed standout finishes proofed and signed off before a fixed production window.',
     delivered: 'Structural and graphic design with foils and embosses speced and proofed with the production partner up front.',
     value: 'Finishes confirmed before production, so the run went ahead on schedule with no costly surprises.',
   },
   {
-    year: '2025', title: 'Pharmacy Counter Reset', industry: 'Retail', kind: 'POS · 1,200 stores', ratio: '4/3', size: 4,
+    year: '2025', title: 'Pharmacy retail — counter rollout', industry: 'Retail', kind: 'POS · 1,200 stores', ratio: '4/3', size: 4,
     challenge: 'A counter and endcap program had to reach 1,200 stores on a fixed date, with variations by region.',
     delivered: 'Production-ready specs, vendor management and market-specific install kits, coordinated as one rollout.',
     value: 'One coordinated rollout instead of many separate briefs — fewer handoffs and a predictable install.',
   },
   {
-    year: '2024', title: 'Halocort OTC Refresh', industry: 'Pharma', kind: 'eDetailer · OTC', ratio: '4/3', size: 4,
+    year: '2024', title: 'OTC health — pack + eDetailer refresh', industry: 'Pharma', kind: 'eDetailer · OTC', ratio: '4/3', size: 4,
     challenge: 'An OTC brand needed packaging and an eDetailer refreshed across AU/NZ and SEA on a tight timeline.',
     delivered: 'A refreshed pack and modular detailer with local-language adaptation, reusing already-approved modules.',
     value: 'Repeat work got easier — approved modules were reused, so later markets cost less and moved faster.',
   },
   {
-    year: '2024', title: 'GrowthIQ Sales Toolkit', industry: 'B2B', kind: 'Sales enablement', ratio: '4/3', size: 6,
+    year: '2024', title: 'B2B tech — sales toolkit', industry: 'B2B', kind: 'Sales enablement', ratio: '4/3', size: 6,
     challenge: 'A B2B team’s pitch materials were inconsistent and slow to update across regions.',
     delivered: 'A modular deck and one-pager system with locked brand elements and editable content blocks.',
     value: 'Sales teams localise and update in minutes, with the brand staying consistent across APAC.',
   },
   {
-    year: '2024', title: 'Bangkok Travel Retail Pop-Up', industry: 'Travel Retail', kind: 'POS · Activation', ratio: '4/3', size: 6,
+    year: '2024', title: 'Travel retail — airport pop-up', industry: 'Travel Retail', kind: 'POS · Activation', ratio: '4/3', size: 6,
     challenge: 'A travel-retail activation needed to be designed, built and installed at an airport on a short lead time.',
     delivered: 'A buildable, travel-friendly design with specs and on-the-ground production coordination in market.',
     value: 'A senior lead in the region kept the build moving, and the activation opened on time.',
@@ -205,8 +206,8 @@ export const POSTS: Post[] = [
 ];
 
 export const HERO_CYCLE_WORDS = [
-  'packaging.', 'campaigns.', 'eDetailers.', 'digital.',
-  'point of sale.', 'pharma.', 'global brands.',
+  'packaging.', 'campaigns.', 'eDetailers.', 'websites.',
+  'point of sale.', 'video.',
 ];
 
 export const TIMELINE = [
@@ -214,7 +215,7 @@ export const TIMELINE = [
   { num: '2012', name: 'Manila', desc: 'Manila production office opens. Beginning of always-on delivery.' },
   { num: '2018', name: 'Pharma', desc: 'Pharma practice scales — regulated content becomes a core discipline.' },
   { num: '2024', name: 'eDetailers', desc: 'Productised Veeva-ready eDetailer offer launches to existing pharma clients.' },
-  { num: '2026', name: 'AI-Empowered', desc: 'AI-assisted delivery becomes core to every practice. GEO-first web rebuild.' },
+  { num: '2026', name: '20 years on', desc: 'Video and training assets join the offer, and websites are rebuilt for SEO and AI-search visibility — useful technology, experienced people.' },
 ];
 
 // Who we help — the buyer groups, named plainly (supports BD + LinkedIn traffic).
@@ -232,7 +233,7 @@ export const WHO_WE_HELP: Buyer[] = [
 export interface WorkStep { num: string; name: string; desc: string; }
 export const HOW_WE_WORK: WorkStep[] = [
   { num: '01', name: 'Briefing', desc: 'We start with a short, structured brief and a senior lead who stays on the account — so nothing gets lost in translation.' },
-  { num: '02', name: 'One workflow', desc: 'One team from concept to final art. Fewer handoffs between agencies means fewer things to chase and re-explain.' },
+  { num: '02', name: 'A workflow that fits you', desc: 'A dedicated team from concept to final art, with a workflow adapted to how your team works. Fewer handoffs means fewer things to chase and re-explain.' },
   { num: '03', name: 'Approvals', desc: 'We work to your approval process — including MLR/PromoMats for regulated work — and prepare files to move through review with fewer rounds.' },
   { num: '04', name: 'Version control', desc: 'A single source of truth for artwork and assets, with clear versioning so the right file ships every time.' },
   { num: '05', name: 'QA checks', desc: 'Design, copy and compliance checks before anything leaves the studio — caught here, not at the printer or the reviewer.' },
@@ -243,7 +244,7 @@ export const HOW_WE_WORK: WorkStep[] = [
 // Procurement confidence — risk, detail, approvals, versions, repeat work.
 export interface ProcurementPoint { name: string; desc: string; }
 export const PROCUREMENT: ProcurementPoint[] = [
-  { name: 'Fewer suppliers to manage', desc: 'One studio across packaging, POS, digital, advertising and eDetailers — one point of contact, one accountable team.' },
+  { name: 'Fewer suppliers to manage', desc: 'One accountable partner across packaging, POS, digital, advertising, video and eDetailers — one point of contact, one team responsible.' },
   { name: 'Predictable scope and pricing', desc: 'Clear scopes and, where it fits, productised pricing — so budgets hold and surprises don’t turn up late.' },
   { name: 'Approvals supported', desc: 'We work inside your review and compliance process and keep a clear trail of versions and sign-offs.' },
   { name: 'The detail handled', desc: 'Specs, dielines, final art and install kits prepared properly up front, so production runs smoothly.' },
@@ -264,7 +265,7 @@ export const SITE = {
   name: 'Group 24/7 Worldwide',
   shortName: 'G247',
   url: 'https://group247ww.com',
-  tagline: 'Perfect design, flawless execution.',
+  tagline: 'Careful thinking, dependable execution.',
   founded: '2006',
   email: 'hello@group247ww.com',
   phone: '+61 2 8000 0000',
