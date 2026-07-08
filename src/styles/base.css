@@ -176,7 +176,7 @@ html.no-js .reveal { opacity: 1; transform: none; transition: none; }
 .nav-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--s-6); padding: var(--s-4) var(--gutter); max-width: var(--maxw); margin: 0 auto; }
 .brand { display: inline-flex; align-items: center; }
 .brand-logo { height: 46px; width: auto; display: block; }
-@media (max-width: 560px) { .brand-logo { height: 34px; } }
+@media (max-width: 560px) { .brand-logo { height: 30px; } }
 .nav-menu { display: flex; gap: var(--s-6); justify-content: center; }
 .nav-link {
   font-family: var(--ff-mono); font-size: var(--fs-mono);
@@ -219,11 +219,18 @@ html.no-js .reveal { opacity: 1; transform: none; transition: none; }
 .nav-drawer-cta { margin-top: var(--s-5); align-self: flex-start; }
 @media (min-width: 901px) { .nav-drawer { display: none; } }
 @media (max-width: 900px) {
+  /* nav-menu is removed, so drop to 2 columns (brand | right) — otherwise
+     auto-placement drops nav-right into the empty 1fr track, mis-aligning it. */
+  .nav-inner { grid-template-columns: 1fr auto; }
   .nav-menu { display: none; }
   .nav-clock { display: none; }
   .nav-burger { display: inline-flex; }
 }
-@media (max-width: 380px) { .nav-right .ai-trigger { display: none; } }
+@media (max-width: 560px) {
+  .nav-inner { gap: var(--s-3); }
+  .nav-right { gap: var(--s-3); }
+  .ai-trigger { padding: 8px 11px; gap: var(--s-2); }
+}
 
 /* ============================================================ */
 /* Hero                                                            */
