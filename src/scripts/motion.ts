@@ -49,6 +49,25 @@ function initCursor() {
   requestAnimationFrame(tick);
 }
 
+/* ---------- Mobile nav drawer ---------- */
+function initNav() {
+  const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+  const drawer = document.querySelector<HTMLElement>('[data-nav-drawer]');
+  if (!toggle || !drawer) return;
+  const setOpen = (open: boolean) => {
+    drawer.classList.toggle('is-open', open);
+    toggle.classList.toggle('is-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  toggle.addEventListener('click', () => setOpen(!drawer.classList.contains('is-open')));
+  drawer.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setOpen(false); });
+  // Close if resized up to desktop.
+  window.matchMedia('(min-width: 901px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
+}
+
 /* ---------- Scroll reveal ---------- */
 function initReveal() {
   const els = document.querySelectorAll('.reveal');
@@ -107,6 +126,7 @@ function initHeroCycle() {
 
 function initAll() {
   initCursor();
+  initNav();
   initReveal();
   initClocks();
   initHeroCycle();

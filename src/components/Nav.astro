@@ -24,6 +24,17 @@ const isActive = (id: string) =>
         Ask G247
         <span class="ai-kbd">⌘K</span>
       </button>
+      <button class="nav-burger" type="button" data-nav-toggle aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </header>
+<div class="nav-drawer" id="nav-drawer" data-nav-drawer>
+  <nav class="nav-drawer-menu" aria-label="Mobile">
+    {NAV_ITEMS.map((it) => (
+      <a href={it.href} class:list={['nav-drawer-link', isActive(it.id) && 'active']}>{it.label}</a>
+    ))}
+  </nav>
+  <a class="btn btn-accent nav-drawer-cta" href="/contact">Start a project</a>
+</div>

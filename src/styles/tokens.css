@@ -6,12 +6,14 @@
    ============================================================ */
 
 :root {
-  /* Type scale (fluid; tuned for 1440 design width) */
-  --fs-display: clamp(72px, 11.5vw, 220px);
-  --fs-h1:      clamp(48px, 6.8vw, 112px);
-  --fs-h2:      clamp(36px, 4.2vw, 72px);
-  --fs-h3:      clamp(24px, 2.2vw, 36px);
-  --fs-lede:    clamp(20px, 1.5vw, 28px);
+  /* Type scale (fluid; tuned for 1440 design width).
+     Low minimums so headings scale down on phones instead of pinning huge
+     and overflowing the viewport. Desktop (vw-driven) is unchanged. */
+  --fs-display: clamp(40px, 11.5vw, 220px);
+  --fs-h1:      clamp(30px, 6.8vw, 112px);
+  --fs-h2:      clamp(26px, 4.2vw, 72px);
+  --fs-h3:      clamp(20px, 2.2vw, 36px);
+  --fs-lede:    clamp(16px, 1.6vw, 28px);
   --fs-body:    16px;
   --fs-small:   13px;
   --fs-mono:    12px;
