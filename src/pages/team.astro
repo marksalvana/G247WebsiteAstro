@@ -8,7 +8,7 @@ import { TEAM, SITE } from '@data/site';
 
 const title = 'Team — Seniors only, no bench warmers | Group 24/7 Worldwide';
 const description =
-  'Every G247 account has a senior decision-maker on it by design. A deliberately lean team across Sydney, Manila, Bangkok and Shanghai.';
+  'Every G247 account has a senior decision-maker on it by design. A senior-led team across Sydney, Bangkok, Dalian, Manila and Selangor.';
 
 const peopleSchema = {
   '@context': 'https://schema.org',
@@ -43,11 +43,13 @@ const peopleSchema = {
 
     <section class="section">
       <div class="shell">
-        <SectionLabel num="01" name="The team" right={`${TEAM.length} members · 4 cities`} />
+        <SectionLabel num="01" name="The team" right={`${TEAM.length} people · 5 offices`} />
         <div class="team-grid">
           {TEAM.map((m, i) => (
             <div class="team-card reveal" style={`transition-delay: ${(i % 4) * 60}ms`}>
-              <Placeholder ratio="3/4" label={m.city.toUpperCase()} />
+              {m.photo
+                ? <img class="team-photo" src={m.photo} alt={m.name} width="400" height="500" loading="lazy" decoding="async" />
+                : <Placeholder ratio="3/4" label={m.city.toUpperCase()} />}
               <div class="name">{m.name}</div>
               <div class="role">{m.role} · {m.city}</div>
             </div>

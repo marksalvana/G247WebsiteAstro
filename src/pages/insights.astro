@@ -41,10 +41,10 @@ const blogSchema = POSTS.map((p) => ({
 
     <section class="section">
       <div class="shell">
-        <SectionLabel num="01" name="Recent" right={`${POSTS.length} posts`} />
+        <SectionLabel num="01" name="Recent" right={`${POSTS.length} post${POSTS.length === 1 ? '' : 's'}`} />
         <div class="posts">
           {POSTS.map((p) => (
-            <a class="post reveal" href="#">
+            <a class="post reveal" href={p.url ?? '#'} {...(p.url?.startsWith('http') ? { target: '_blank', rel: 'noopener' } : {})}>
               <span class="post-date">{p.date}</span>
               <span class="post-cat">{p.cat}</span>
               <span class="post-title">{p.title}</span>

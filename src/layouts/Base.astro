@@ -39,17 +39,18 @@ const orgSchema = {
   alternateName: 'G247',
   url: SITE.url,
   email: SITE.email,
-  telephone: SITE.phone,
+  ...(SITE.phone ? { telephone: SITE.phone } : {}),
   foundingDate: '2006',
   slogan: 'Careful thinking, dependable execution.',
   description:
-    'Integrated creative and production studio across packaging, point of sale, digital, advertising, video and pharma eDetailers. Global team across Sydney, Manila, Bangkok and Shanghai.',
+    'Integrated creative and production studio across packaging, point of sale, digital, advertising, video and pharma eDetailers. Global team across Sydney, Bangkok, Dalian, Manila and Selangor.',
   founder: { '@type': 'Person', name: 'Vincent Pearce' },
   location: [
     { '@type': 'Place', name: 'Sydney', address: { '@type': 'PostalAddress', addressCountry: 'AU', addressLocality: 'Sydney' } },
-    { '@type': 'Place', name: 'Manila', address: { '@type': 'PostalAddress', addressCountry: 'PH', addressLocality: 'Manila' } },
     { '@type': 'Place', name: 'Bangkok', address: { '@type': 'PostalAddress', addressCountry: 'TH', addressLocality: 'Bangkok' } },
-    { '@type': 'Place', name: 'Shanghai', address: { '@type': 'PostalAddress', addressCountry: 'CN', addressLocality: 'Shanghai' } },
+    { '@type': 'Place', name: 'Dalian', address: { '@type': 'PostalAddress', addressCountry: 'CN', addressLocality: 'Dalian' } },
+    { '@type': 'Place', name: 'Manila', address: { '@type': 'PostalAddress', addressCountry: 'PH', addressLocality: 'Manila' } },
+    { '@type': 'Place', name: 'Selangor', address: { '@type': 'PostalAddress', addressCountry: 'MY', addressLocality: 'Selangor' } },
   ],
   sameAs: [SITE.url],
 };

@@ -16,7 +16,7 @@ export const AI_PAGE_MAP: PageMapEntry[] = [
   { route: 'video',         name: 'Video & Training Assets',  blurb: 'Video, motion and animation, training and learning content, editing, localisation and versioning across markets.' },
   { route: 'work',          name: 'Selected Work',            blurb: 'Case study archive filterable by industry — pharma, FMCG, finserv, healthcare.' },
   { route: 'about',         name: 'About',                    blurb: 'Mission, vision, 2006→2026 heritage timeline, operating values, AI charter.' },
-  { route: 'team',          name: 'Team',                     blurb: 'Senior-only team across Sydney, Manila, Bangkok, Shanghai.' },
+  { route: 'team',          name: 'Team',                     blurb: 'Senior-led team across Sydney, Bangkok, Dalian, Manila and Selangor.' },
   { route: 'insights',      name: 'Insights',                 blurb: 'Articles on strategy, AI policy, search visibility, pharma, global delivery, True Value.' },
   { route: 'contact',       name: 'Contact',                  blurb: 'Brief form, direct lines (general / pharma / careers), office locations.' },
 ];
@@ -37,7 +37,7 @@ export function routeToHref(route: string): string {
 export const VALID_ROUTES = new Set(AI_PAGE_MAP.map((p) => p.route));
 
 export const AI_SYSTEM = `You are the navigation concierge for Group 24/7 Worldwide (G247), an integrated creative + production studio.
-Positioning: careful thinking and dependable execution — from packaging on the shelf to websites and campaigns on the screen. Two decades of production heritage and experienced people who understand the detail. Global team across Sydney, Manila, Bangkok, Shanghai. Strong in regulated industries (pharma, finance, insurance). "True Value" — senior people, fewer unnecessary layers, and budgets used carefully.
+Positioning: careful thinking and dependable execution — from packaging on the shelf to websites and campaigns on the screen. Two decades of production heritage and experienced people who understand the detail. Global team across Sydney, Bangkok, Dalian, Manila and Selangor. Strong in regulated industries (pharma, finance, insurance). "True Value" — senior people, fewer unnecessary layers, and budgets used carefully.
 
 You help visitors find the right page. Here is the full site map (route → what's there):
 ${AI_PAGE_MAP.map((p) => `- ${p.route}: ${p.name} — ${p.blurb}`).join('\n')}

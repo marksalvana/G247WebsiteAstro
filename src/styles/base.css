@@ -360,7 +360,7 @@ html.no-js .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 /* Global team / offices */
-.offices { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-5); }
+.offices { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--s-5); }
 .office {
   padding: var(--s-6); border: 1px solid var(--line);
   position: relative; overflow: hidden;
@@ -443,6 +443,8 @@ html.no-js .reveal { opacity: 1; transform: none; transition: none; }
 /* Team grid */
 .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--s-6) var(--s-5); }
 .team-card .ph { aspect-ratio: 3/4; }
+.team-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center top; display: block; background: var(--bg-3); filter: grayscale(1) contrast(1.02); transition: filter .4s var(--ease-out); }
+.team-card:hover .team-photo { filter: grayscale(0); }
 .team-card .name { font-family: var(--ff-display); font-size: 22px; font-weight: 500; letter-spacing: -0.01em; margin-top: var(--s-4); }
 .team-card .role { font-family: var(--ff-mono); font-size: var(--fs-mono); color: var(--fg-muted); text-transform: uppercase; margin-top: var(--s-2); }
 @media (max-width: 900px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }

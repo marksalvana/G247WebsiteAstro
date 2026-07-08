@@ -172,6 +172,9 @@ export const SERVICE_DETAILS: Record<ServiceSlug, ServiceDetail> = {
     ],
     industries: ['Pharmaceutical', 'Biotech', 'Medical Devices', 'Animal Health', 'Consumer Health', 'Diagnostics'],
     work: [
+      { title: 'Contrave interactive eDetailer', tag: 'Rx · Weight management' },
+      { title: 'Difflam immune-support eDetailer', tag: 'Consumer health · OTC' },
+      { title: 'DermaVeen eDetailer', tag: 'Skincare · Consumer' },
       { title: 'Rx launch eDetailer', tag: 'Rx · 14 markets' },
       { title: 'OTC eDetailer refresh', tag: 'OTC · AU/NZ' },
       { title: 'Diagnostics detailer series', tag: 'Devices · APAC' },

@@ -45,26 +45,47 @@ export const HOME_VALUES: Value[] = [
 
 export interface Office { flag: string; city: string; tz: string; meta: string; label: string; }
 export const HOME_OFFICES: Office[] = [
-  { flag: 'AU', city: 'Sydney', tz: 'Australia/Sydney', meta: 'HQ · Strategy · Account', label: 'GMT+10' },
-  { flag: 'PH', city: 'Manila', tz: 'Asia/Manila', meta: 'Production · Engineering', label: 'GMT+8' },
-  { flag: 'TH', city: 'Bangkok', tz: 'Asia/Bangkok', meta: 'Production · Artwork', label: 'GMT+7' },
-  { flag: 'CN', city: 'Shanghai', tz: 'Asia/Shanghai', meta: 'Local exec · Translation', label: 'GMT+8' },
+  { flag: 'AU', city: 'Sydney', tz: 'Australia/Sydney', meta: 'HQ · Account · Client services', label: 'GMT+10' },
+  { flag: 'TH', city: 'Bangkok', tz: 'Asia/Bangkok', meta: 'Creative · Artwork · Production', label: 'GMT+7' },
+  { flag: 'CN', city: 'Dalian', tz: 'Asia/Shanghai', meta: 'Account · Prepress · QC', label: 'GMT+8' },
+  { flag: 'PH', city: 'Manila', tz: 'Asia/Manila', meta: 'Account · Web · Project management', label: 'GMT+8' },
+  { flag: 'MY', city: 'Selangor', tz: 'Asia/Kuala_Lumpur', meta: 'Design', label: 'GMT+8' },
 ];
 
-export interface TeamMember { name: string; role: string; city: string; }
+export interface TeamMember { name: string; role: string; city: string; photo?: string; }
 export const TEAM: TeamMember[] = [
-  { name: 'Vincent Pearce', role: 'Founder & CEO', city: 'Sydney' },
-  { name: 'Migs Salvana', role: 'Managing Partner', city: 'Manila' },
-  { name: 'Mark Salvana', role: 'Strategy & Digital', city: 'Manila' },
-  { name: 'Jon Reyes', role: 'Head of Engineering', city: 'Manila' },
-  { name: 'Frank Aguilar', role: 'Senior Engineer', city: 'Manila' },
-  { name: 'Anya Wirat', role: 'Head of Production', city: 'Bangkok' },
-  { name: 'Liu Wei', role: 'China Lead', city: 'Shanghai' },
-  { name: 'Ines Tan', role: 'Creative Director', city: 'Sydney' },
-  { name: 'Sam O’Brien', role: 'Senior Designer', city: 'Sydney' },
-  { name: 'Patcharin Sang', role: 'Artwork Lead', city: 'Bangkok' },
-  { name: 'Carlo Tan', role: 'Production Manager', city: 'Manila' },
-  { name: 'Mei Zhang', role: 'Translation Lead', city: 'Shanghai' },
+  { name: 'David Noble', role: 'Director', city: 'Sydney', photo: '/team/david.jpg' },
+  { name: 'Spike Walker', role: 'Client Services Director', city: 'Sydney', photo: '/team/spike.jpg' },
+  { name: 'Steve Gow', role: 'Account Director', city: 'Sydney', photo: '/team/steve.jpg' },
+  { name: 'Sunny Liu', role: 'Account Director', city: 'Dalian', photo: '/team/sunny.jpg' },
+  { name: 'Thamakorn Sriwatcharakorn', role: 'Country Manager', city: 'Bangkok', photo: '/team/ble.png' },
+  { name: 'Nerina Maher', role: 'Senior Account Manager', city: 'Sydney', photo: '/team/nez.jpg' },
+  { name: 'Ismini Demetriou', role: 'Executive Account Manager', city: 'Sydney' },
+  { name: 'Kay Pilapil', role: 'Regional Account Manager', city: 'Manila', photo: '/team/kay.jpg' },
+  { name: 'Phanita Panyaart', role: 'Account Manager', city: 'Bangkok', photo: '/team/jajar.jpg' },
+  { name: 'Jeranan Rattanaratree', role: 'Account Executive', city: 'Bangkok' },
+  { name: 'Chanadol Patpawat', role: 'Creative Design Manager', city: 'Bangkok', photo: '/team/paytong.jpg' },
+  { name: 'Annie Laurel', role: 'Project Manager', city: 'Manila', photo: '/team/annie.jpg' },
+  { name: 'Joseph Mercado', role: 'Senior Web Developer', city: 'Cagayan de Oro', photo: '/team/joe.jpeg' },
+  { name: 'Linda Li', role: 'Social Media Manager', city: 'Sydney' },
+  { name: 'Maria Andreeva', role: 'Graphic Designer', city: 'Sydney', photo: '/team/maria.jpg' },
+  { name: 'Thushaini Ananthan', role: 'Designer', city: 'Selangor', photo: '/team/shaini.jpg' },
+  { name: 'Carina Yu', role: 'Designer', city: 'Dalian', photo: '/team/carina.jpg' },
+  { name: 'Soravit Ditsorn', role: 'Artwork Manager', city: 'Bangkok', photo: '/team/nai.jpg' },
+  { name: 'Saravut Sangkamaneevong', role: 'Technical Artwork Designer', city: 'Bangkok', photo: '/team/nueng.jpg' },
+  { name: 'Wiphada Khanarak', role: 'Graphic Designer', city: 'Bangkok', photo: '/team/meena.jpg' },
+  { name: 'Mallika Sungpood', role: 'Graphic Designer', city: 'Bangkok', photo: '/team/oil.jpg' },
+  { name: 'Koragot Amonhemanon', role: 'Artworker', city: 'Bangkok', photo: '/team/kai.jpg' },
+  { name: 'Chanon Thanupphetha', role: 'Artworker', city: 'Bangkok', photo: '/team/mind.jpg' },
+  { name: 'Pornpawee Insawang', role: 'Artworker', city: 'Bangkok', photo: '/team/cat.jpg' },
+  { name: 'Elaine Liu', role: 'Account Executive & QC', city: 'Dalian', photo: '/team/elaine.jpg' },
+  { name: 'Nika Yang', role: 'Business Service Support', city: 'Dalian', photo: '/team/nika.jpg' },
+  { name: 'Cayla Day', role: 'Operator', city: 'Dalian', photo: '/team/cayla.jpg' },
+  { name: 'Pongrak Paseeratasang', role: 'Graphic Designer', city: 'Bangkok' },
+  { name: 'Sawanya Phatthayut', role: 'Graphic Designer', city: 'Bangkok' },
+  { name: 'Titiwannapa Dechanantpong', role: 'Graphic Designer', city: 'Bangkok' },
+  { name: 'Passanai Wanchana', role: 'Production Artworker', city: 'Bangkok' },
+  { name: 'Suphapon Kunta', role: 'Production Artworker', city: 'Bangkok' },
 ];
 
 export interface HomeWork { title: string; tag: string; kind: string; ph: string; }
@@ -157,6 +178,13 @@ export interface CaseStudy {
 }
 export const CASE_STUDIES: CaseStudy[] = [
   {
+    sector: 'Contrave · Difflam · DermaVeen',
+    scope: 'Interactive eDetailers · iPad',
+    challenge: 'Three prescription and consumer-health brands needed reps and customers to explore product and clinical information without wading through static PDFs.',
+    delivered: 'Interactive iPad eDetailers with smooth animations, touch-responsive navigation, dynamic graphs for clinical data and animated breakdowns of key ingredient benefits — working across tablet, phone and desktop.',
+    value: 'Engaging, easy-to-navigate detailers that bring each brand’s product and clinical story to life for the people who need it.',
+  },
+  {
     sector: 'Global pharmaceutical brand',
     scope: 'eDetailer + packaging · 14 markets',
     challenge: 'A new prescription launch had to ship a compliant eDetailer and pack system across 14 markets — fast, and without rebuilding the content for every regulator.',
@@ -193,16 +221,12 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
 ];
 
-export interface Post { date: string; cat: string; title: string; read: string; }
+export interface Post { date: string; cat: string; title: string; read: string; url?: string; }
+// Only one genuinely-published article exists so far (on the current live site).
+// The fabricated placeholder posts have been removed; add real articles here as
+// they're written, ideally with a local `url` once article pages are built.
 export const POSTS: Post[] = [
-  { date: 'May 26 2026', cat: 'Strategy', title: '20 years on — what we’ve learned', read: '6 min' },
-  { date: 'May 12 2026', cat: 'AI Policy', title: 'Our AI charter: how we use it, how we won’t', read: '4 min' },
-  { date: 'Apr 28 2026', cat: 'GEO', title: 'Why your website is invisible to AI — and what to do about it', read: '7 min' },
-  { date: 'Apr 14 2026', cat: 'Pharma', title: 'Veeva eDetailers: a productised approach', read: '5 min' },
-  { date: 'Mar 30 2026', cat: 'Global', title: 'One brief, four timezones: how always-on delivery actually works', read: '5 min' },
-  { date: 'Mar 16 2026', cat: 'Packaging', title: 'Shelf reset playbook for FMCG brands', read: '8 min' },
-  { date: 'Mar 02 2026', cat: 'True Value', title: 'The maths behind senior-only teams', read: '4 min' },
-  { date: 'Feb 16 2026', cat: 'Strategy', title: 'What “integrated agency” actually means in 2026', read: '6 min' },
+  { date: 'May 25 2026', cat: 'Studio', title: '20 years on — what we’ve learned', read: '6 min', url: 'https://group247ww.com/2026/05/25/20-years-on-what-weve-learned/' },
 ];
 
 export const HERO_CYCLE_WORDS = [
@@ -267,6 +291,6 @@ export const SITE = {
   url: 'https://group247ww.com',
   tagline: 'Careful thinking, dependable execution.',
   founded: '2006',
-  email: 'hello@group247ww.com',
-  phone: '+61 2 8000 0000',
+  email: 'info@group247ww.com',
+  phone: '', // TODO: no public phone number on the live site — add real number when available
 };
