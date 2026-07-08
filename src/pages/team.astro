@@ -48,8 +48,8 @@ const peopleSchema = {
           {TEAM.map((m, i) => (
             <div class="team-card reveal" style={`transition-delay: ${(i % 4) * 60}ms`}>
               {m.photo
-                ? <img class="team-photo" src={m.photo} alt={m.name} width="400" height="500" loading="lazy" decoding="async" />
-                : <Placeholder ratio="3/4" label={m.city.toUpperCase()} />}
+                ? <img class="team-photo" src={m.photo} alt={m.name} width="400" height="400" loading="lazy" decoding="async" />
+                : <Placeholder ratio="1/1" label={m.city.toUpperCase()} />}
               <div class="name">{m.name}</div>
               <div class="role">{m.role} · {m.city}</div>
             </div>
